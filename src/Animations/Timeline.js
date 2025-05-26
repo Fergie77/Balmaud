@@ -21,6 +21,7 @@ export const Timeline = () => {
     end: 'bottom bottom',
     pin: '.timeline_info_wrapper',
     pinSpacing: true,
+    anticipatePin: 0.2,
   })
 
   // Define fade in and fade out with animation, tracking last visible section
