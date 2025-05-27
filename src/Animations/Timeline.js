@@ -31,13 +31,13 @@ export const Timeline = () => {
     if (lastIndex !== currentIndex) {
       gsap.to(infoSections[lastIndex], {
         opacity: 0,
-        duration: 0.3,
+        duration: 0.6,
         ease: 'power2.out',
       })
     }
     gsap.to(infoSections[currentIndex], {
       opacity: 1,
-      duration: 0.3,
+      duration: 0.6,
       ease: 'power2.out',
     })
     lastIndex = currentIndex
