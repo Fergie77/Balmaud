@@ -23,6 +23,7 @@ export const splitFadeIn = (container, selector) => {
       trigger: element,
       start: 'top 100%',
       end: 'bottom top',
+      markers: true,
       onEnter: () => {
         gsap.to(splitText.words, {
           yPercent: 0,
