@@ -13,6 +13,7 @@ if (document.fonts && document.fonts.ready) {
   document.fonts.ready.then(() => {
     setTimeout(() => {
       splitFadeIn(document, '[balmaud-animation="split-fade-in"]')
+      fadeIn(document, '[balmaud-animation="fade-in"]')
     }, 10)
   })
 } else {
@@ -20,10 +21,10 @@ if (document.fonts && document.fonts.ready) {
   window.addEventListener('load', () =>
     setTimeout(() => {
       splitFadeIn(document, '[balmaud-animation="split-fade-in"]')
+      fadeIn(document, '[balmaud-animation="fade-in"]')
     }, 10)
   )
 }
 
-fadeIn(document, '[balmaud-animation="fade-in"]')
 contentFadeIn()
 navColourSwap()
