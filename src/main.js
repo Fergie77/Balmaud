@@ -13,14 +13,14 @@ if (document.fonts && document.fonts.ready) {
   document.fonts.ready.then(() => {
     setTimeout(() => {
       splitFadeIn(document, '[balmaud-animation="split-fade-in"]')
-    }, 2000)
+    }, 10)
   })
 } else {
   // Fallback for older browsers
   window.addEventListener('load', () =>
     setTimeout(() => {
       splitFadeIn(document, '[balmaud-animation="split-fade-in"]')
-    }, 2000)
+    }, 10)
   )
 }
 
