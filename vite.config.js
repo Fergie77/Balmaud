@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [eslintPlugin({ cache: false })],
   server: {
     host: 'localhost',
-    https: true,
-    cors: { origin: '*' },
+    //https: true,
+    cors: '*',
     hmr: {
       host: 'localhost',
       protocol: 'ws',
