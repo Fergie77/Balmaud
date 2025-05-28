@@ -8,6 +8,9 @@ export const splitFadeIn = (container, selector) => {
   const text = container.querySelectorAll(selector)
   gsap.set(text, { opacity: 1 })
 
+  const isMobile = window.innerWidth <= 768 // Adjust breakpoint as needed
+  const startValue = isMobile ? 'top 90%' : 'top 100%'
+
   text.forEach((element) => {
     const stagger = parseFloat(element.getAttribute('data-stagger')) || 0.005
 
@@ -21,7 +24,7 @@ export const splitFadeIn = (container, selector) => {
 
     ScrollTrigger.create({
       trigger: element,
-      start: 'top 100%',
+      start: startValue,
       end: 'bottom top',
       markers: true,
       onEnter: () => {
