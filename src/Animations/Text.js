@@ -46,6 +46,8 @@ export const fadeIn = (container, selector) => {
   gsap.set(text, { opacity: 1 })
 
   text.forEach((element) => {
+    const delay = parseFloat(element.getAttribute('data-delay')) || 0
+
     gsap.set(element, { opacity: 0 })
 
     ScrollTrigger.create({
@@ -56,6 +58,7 @@ export const fadeIn = (container, selector) => {
         gsap.to(element, {
           opacity: 1,
           duration: 1,
+          delay: delay,
           ease: 'power2.inOut',
         })
       },
