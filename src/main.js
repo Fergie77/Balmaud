@@ -1,5 +1,5 @@
 import { contentFadeIn } from './Animations/Content'
-import { navColourSwap } from './Animations/Nav'
+import { navColourSwap, FooterFade } from './Animations/Nav'
 import { fadeIn, splitFadeIn } from './Animations/Text'
 import { Timeline } from './Animations/Timeline'
 
@@ -28,3 +28,4 @@ if (document.fonts && document.fonts.ready) {
 
 contentFadeIn()
 navColourSwap()
+FooterFade()

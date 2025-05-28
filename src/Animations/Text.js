@@ -13,6 +13,7 @@ export const splitFadeIn = (container, selector) => {
 
   text.forEach((element) => {
     const stagger = parseFloat(element.getAttribute('data-stagger')) || 0.005
+    const revert = element.getAttribute('data-revert')
 
     const splitText = new SplitText(element, {
       type: 'lines, words',
@@ -38,6 +39,12 @@ export const splitFadeIn = (container, selector) => {
           duration: 1,
           stagger: stagger * 2,
           ease: 'power2.inOut',
+          onComplete: () => {
+            if (revert) {
+              console.log('revert')
+              splitText.revert()
+            }
+          },
         })
       },
     })
