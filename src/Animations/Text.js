@@ -12,7 +12,7 @@ export const splitFadeIn = (container, selector) => {
     const stagger = parseFloat(element.getAttribute('data-stagger')) || 0.005
 
     const splitText = new SplitText(element, {
-      type: 'lines, words, chars',
+      type: 'lines, words',
       onSplit: (self) => {
         gsap.set(self.words, { opacity: 0, yPercent: 100 })
       },
