@@ -63,9 +63,9 @@ export const Timeline = () => {
       gsap.set(section, { opacity: idx === 0 ? 1 : 0 })
     })
     const isTablet = window.matchMedia(
-      '(min-width: 768px) and (max-width: 991px)'
+      '(min-width: 768px) and (max-width: 1024px)'
     ).matches
-    const isDesktop = window.matchMedia('(min-width: 992px)').matches
+    const isDesktop = window.matchMedia('(min-width: 1024px)').matches
 
     let startValue = 'top 30%' // default
     if (isTablet) {
