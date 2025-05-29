@@ -41,6 +41,7 @@ export const Timeline = () => {
       pin: '.timeline_info_wrapper',
       pinSpacing: true,
       anticipatePin: 0.2,
+      markers: true,
     })
     let lastIndex = 0 // Track the last visible section
     const fadeIn = (currentIndex) => {
@@ -66,6 +67,7 @@ export const Timeline = () => {
         trigger: section,
         start: 'top 30%',
         end: 'bottom 30%',
+        markers: true,
         onEnter: () => fadeIn(index),
         onEnterBack: () => fadeIn(index),
         onLeave: () => {
