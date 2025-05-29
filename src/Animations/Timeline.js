@@ -62,10 +62,22 @@ export const Timeline = () => {
     infoSections.forEach((section, idx) => {
       gsap.set(section, { opacity: idx === 0 ? 1 : 0 })
     })
+    const isTablet = window.matchMedia(
+      '(min-width: 768px) and (max-width: 991px)'
+    ).matches
+    const isDesktop = window.matchMedia('(min-width: 992px)').matches
+
+    let startValue = 'top 30%' // default
+    if (isTablet) {
+      startValue = 'top 60%' // or whatever you want for tablet
+    } else if (isDesktop) {
+      startValue = 'top 30%' // desktop value
+    }
+
     imageSections.forEach((section, index) => {
       ScrollTrigger.create({
         trigger: section,
-        start: 'top 30%',
+        start: startValue,
         end: 'bottom 30%',
         markers: true,
         onEnter: () => fadeIn(index),
