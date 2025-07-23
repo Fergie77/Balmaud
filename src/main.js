@@ -1,4 +1,4 @@
-import { contentFadeIn } from './Animations/Content'
+import { contentFadeIn, heroBottleFadeIn } from './Animations/Content'
 import { navColourSwap, FooterFade } from './Animations/Nav'
 import { fadeIn, splitFadeIn } from './Animations/Text'
 import { Timeline } from './Animations/Timeline'
@@ -27,5 +27,6 @@ if (document.fonts && document.fonts.ready) {
 }
 
 contentFadeIn()
+heroBottleFadeIn()
 navColourSwap()
 FooterFade()
