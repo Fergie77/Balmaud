@@ -1,4 +1,7 @@
 import { contentFadeIn, heroBottleFadeIn } from './Animations/Content'
+import { DiarySlider } from './Animations/DiarySlider'
+import { dropdowns } from './Animations/Dropdowns'
+import { floatingCart } from './Animations/FloatingCart'
 import { navColourSwap, FooterFade } from './Animations/Nav'
 import { fadeIn, splitFadeIn } from './Animations/Text'
 import { Timeline } from './Animations/Timeline'
@@ -14,6 +17,10 @@ if (document.fonts && document.fonts.ready) {
     setTimeout(() => {
       splitFadeIn(document, '[balmaud-animation="split-fade-in"]')
       fadeIn(document, '[balmaud-animation="fade-in"]')
+      // Initialize diary slider after animations
+      DiarySlider()
+      floatingCart()
+      dropdowns()
     }, 10)
   })
 } else {
@@ -22,6 +29,8 @@ if (document.fonts && document.fonts.ready) {
     setTimeout(() => {
       splitFadeIn(document, '[balmaud-animation="split-fade-in"]')
       fadeIn(document, '[balmaud-animation="fade-in"]')
+      // Initialize diary slider after animations
+      DiarySlider()
     }, 10)
   )
 }
