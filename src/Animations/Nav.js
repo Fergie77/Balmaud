@@ -1,7 +1,8 @@
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import SplitText from 'gsap/SplitText'
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, SplitText)
 
 export const navColourSwap = () => {
   const navWrapper = document.querySelector('.nav_fixed')
@@ -74,4 +75,109 @@ export const FooterFade = () => {
   if (mm.matches) {
     setup()
   }
+}
+
+export const mobileNav = () => {
+  //const nav = document.querySelector('.nav')
+  const navTrigger = document.querySelector('.nav_button')
+  const navMenu = document.querySelector('.nav_menu')
+  const navBackground = document.querySelector('.nav_menu_background')
+  const navLinks = document.querySelectorAll('.nav_link')
+
+  // Create the timeline once
+  const navTimeline = gsap.timeline({ paused: true })
+
+  navTimeline.fromTo(
+    navBackground,
+    {
+      pointerEvents: 'none',
+      opacity: 0,
+    },
+    {
+      pointerEvents: 'auto',
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power2.inOut',
+    }
+  )
+  navTimeline.fromTo(
+    navMenu,
+    {
+      pointerEvents: 'none',
+      opacity: 0,
+    },
+    {
+      pointerEvents: 'auto',
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power2.inOut',
+    },
+    '<0.25'
+  )
+
+  const splitLinks = []
+  navLinks.forEach((link) => {
+    const splitLink = SplitText.create(link, {
+      type: 'chars, words',
+      charsClass: 'nav_link_char',
+      mask: 'words',
+    })
+
+    splitLinks.push(splitLink)
+    console.log(splitLinks)
+
+    navTimeline.fromTo(
+      splitLink.chars,
+      {
+        opacity: 0,
+        y: 10,
+        scaleY: 1.1,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scaleY: 1,
+        duration: 0.5,
+        stagger: 0.02,
+        ease: 'power2.inOut',
+      },
+      '<'
+    )
+  })
+
+  function navAnimation(state) {
+    if (state === 'open') {
+      navTimeline.play()
+    } else if (state === 'close') {
+      navTimeline.reverse()
+    }
+  }
+
+  // Use MutationObserver to watch for class changes on navTrigger
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (
+        mutation.type === 'attributes' &&
+        mutation.attributeName === 'class'
+      ) {
+        if (navTrigger.classList.contains('w--open')) {
+          navAnimation('open')
+        } else {
+          navAnimation('close')
+        }
+      }
+    })
+  })
+
+  // Start observing the navTrigger for attribute changes
+  observer.observe(navTrigger, {
+    attributes: true,
+    attributeFilter: ['class'],
+  })
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      navAnimation('close')
+    })
+  })
 }

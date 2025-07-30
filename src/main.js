@@ -2,7 +2,7 @@ import { contentFadeIn, heroBottleFadeIn } from './Animations/Content'
 import { DiarySlider } from './Animations/DiarySlider'
 import { dropdowns } from './Animations/Dropdowns'
 import { floatingCart } from './Animations/FloatingCart'
-import { navColourSwap, FooterFade } from './Animations/Nav'
+import { navColourSwap, FooterFade, mobileNav } from './Animations/Nav'
 import { fadeIn, splitFadeIn } from './Animations/Text'
 import { Timeline } from './Animations/Timeline'
 
@@ -39,3 +39,5 @@ contentFadeIn()
 heroBottleFadeIn()
 navColourSwap()
 FooterFade()
+
+mobileNav()
