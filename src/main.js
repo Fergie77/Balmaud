@@ -39,5 +39,3 @@ contentFadeIn()
 heroBottleFadeIn()
 navColourSwap()
 FooterFade()
-
-//mobileNav()
