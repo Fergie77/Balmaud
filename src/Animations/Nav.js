@@ -124,7 +124,6 @@ export const mobileNav = () => {
     })
 
     splitLinks.push(splitLink)
-    console.log(splitLinks)
 
     navTimeline.fromTo(
       splitLink.chars,
@@ -140,6 +139,11 @@ export const mobileNav = () => {
         duration: 0.5,
         stagger: 0.02,
         ease: 'power2.inOut',
+        onComplete: () => {
+          splitLinks.forEach((splitLink) => {
+            splitLink.revert()
+          })
+        },
       },
       '<'
     )
