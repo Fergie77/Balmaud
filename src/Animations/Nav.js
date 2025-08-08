@@ -150,7 +150,7 @@ export const mobileNav = () => {
               splitLinksArray.forEach((splitLink) => {
                 splitLink.revert()
               })
-            }, 5000)
+            }, 10000)
           },
         },
         '<'
