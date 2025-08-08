@@ -122,6 +122,7 @@ export const mobileNav = () => {
       const splitLink = SplitText.create(link, {
         type: 'chars, words',
         charsClass: 'nav_link_char',
+        wordsClass: 'nav_link_word',
         mask: 'words',
       })
 
