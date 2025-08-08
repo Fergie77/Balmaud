@@ -115,43 +115,52 @@ export const mobileNav = () => {
     '<0.25'
   )
 
-  const splitLinks = []
-  navLinks.forEach((link) => {
-    const splitLink = SplitText.create(link, {
-      type: 'chars, words',
-      charsClass: 'nav_link_char',
-      mask: 'words',
+  const splitLinksArray = []
+
+  function splitLinks() {
+    navLinks.forEach((link) => {
+      const splitLink = SplitText.create(link, {
+        type: 'chars, words',
+        charsClass: 'nav_link_char',
+        mask: 'words',
+      })
+
+      splitLinksArray.push(splitLink)
     })
+  }
 
-    splitLinks.push(splitLink)
-
-    navTimeline.fromTo(
-      splitLink.chars,
-      {
-        opacity: 0,
-        y: 10,
-        scaleY: 1.1,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scaleY: 1,
-        duration: 0.5,
-        stagger: 0.02,
-        ease: 'power2.inOut',
-        onComplete: () => {
-          splitLinks.forEach((splitLink) => {
-            splitLink.revert()
-          })
+  function linksAnimation() {
+    splitLinksArray.forEach((splitLink) => {
+      navTimeline.fromTo(
+        splitLink.chars,
+        {
+          opacity: 0,
+          y: 10,
+          scaleY: 1.1,
         },
-      },
-      '<'
-    )
-  })
+        {
+          opacity: 1,
+          y: 0,
+          scaleY: 1,
+          duration: 0.5,
+          stagger: 0.02,
+          ease: 'power2.inOut',
+          onComplete: () => {
+            splitLinksArray.forEach((splitLink) => {
+              splitLink.revert()
+            })
+          },
+        },
+        '<'
+      )
+    })
+  }
 
   function navAnimation(state) {
     if (state === 'open') {
       navTimeline.play()
+      splitLinks()
+      linksAnimation()
     } else if (state === 'close') {
       navTimeline.reverse()
     }
