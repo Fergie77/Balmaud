@@ -146,9 +146,11 @@ export const mobileNav = () => {
           stagger: 0.02,
           ease: 'power2.inOut',
           onComplete: () => {
-            splitLinksArray.forEach((splitLink) => {
-              splitLink.revert()
-            })
+            setTimeout(() => {
+              splitLinksArray.forEach((splitLink) => {
+                splitLink.revert()
+              })
+            }, 5000)
           },
         },
         '<'
