@@ -78,122 +78,185 @@ export const FooterFade = () => {
 }
 
 export const mobileNav = () => {
-  //const nav = document.querySelector('.nav')
   const navTrigger = document.querySelector('.nav_button')
   const navMenu = document.querySelector('.nav_menu')
   const navBackground = document.querySelector('.nav_menu_background')
   const navLinks = document.querySelectorAll('.nav_link')
+  const navOverlay = document.querySelector('.w-nav-overlay')
 
-  // Create the timeline once
-  const navTimeline = gsap.timeline({ paused: true })
+  let navTimeline = null
+  let observer = null
+  let splitLinksArray = []
 
-  navTimeline.fromTo(
-    navBackground,
-    {
-      pointerEvents: 'none',
-      opacity: 0,
-    },
-    {
-      pointerEvents: 'auto',
-      opacity: 1,
-      duration: 0.5,
-      ease: 'power2.inOut',
-    }
-  )
-  navTimeline.fromTo(
-    navMenu,
-    {
-      pointerEvents: 'none',
-      opacity: 0,
-    },
-    {
-      pointerEvents: 'auto',
-      opacity: 1,
-      duration: 0.5,
-      ease: 'power2.inOut',
-    },
-    '<0.25'
-  )
+  function initNavAnimation() {
+    console.log('initNavAnimation')
+    if (navTimeline || !navTrigger || !navMenu || !navBackground) return
 
-  const splitLinksArray = []
+    // Create the timeline
+    navTimeline = gsap.timeline({ paused: true })
 
-  function splitLinks() {
-    navLinks.forEach((link) => {
-      const splitLink = SplitText.create(link, {
-        type: 'chars, words',
-        charsClass: 'nav_link_char',
-        wordsClass: 'nav_link_word',
-        mask: 'words',
-      })
-
-      splitLinksArray.push(splitLink)
-    })
-  }
-
-  function linksAnimation() {
-    splitLinksArray.forEach((splitLink) => {
-      navTimeline.fromTo(
-        splitLink.chars,
-        {
-          opacity: 0,
-          y: 10,
-          scaleY: 1.1,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scaleY: 1,
-          duration: 0.5,
-          stagger: 0.02,
-          ease: 'power2.inOut',
-          onComplete: () => {
-            setTimeout(() => {
-              splitLinksArray.forEach((splitLink) => {
-                splitLink.revert()
-              })
-            }, 100)
-          },
-        },
-        '<'
-      )
-    })
-  }
-
-  function navAnimation(state) {
-    if (state === 'open') {
-      navTimeline.play()
-      splitLinks()
-      linksAnimation()
-    } else if (state === 'close') {
-      navTimeline.reverse()
-    }
-  }
-
-  // Use MutationObserver to watch for class changes on navTrigger
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (
-        mutation.type === 'attributes' &&
-        mutation.attributeName === 'class'
-      ) {
-        if (navTrigger.classList.contains('w--open')) {
-          navAnimation('open')
-        } else {
-          navAnimation('close')
-        }
+    navTimeline.fromTo(
+      navBackground,
+      {
+        pointerEvents: 'none',
+        opacity: 0,
+      },
+      {
+        pointerEvents: 'auto',
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power2.inOut',
       }
-    })
-  })
+    )
+    navTimeline.fromTo(
+      navOverlay,
+      {
+        pointerEvents: 'none',
+        opacity: 0,
+      },
+      {
+        pointerEvents: 'auto',
+        opacity: 1,
+      },
+      '<'
+    )
+    navTimeline.fromTo(
+      navMenu,
+      {
+        pointerEvents: 'none',
+        opacity: 0,
+      },
+      {
+        pointerEvents: 'auto',
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power2.inOut',
+      },
+      '<0.25'
+    )
 
-  // Start observing the navTrigger for attribute changes
-  observer.observe(navTrigger, {
-    attributes: true,
-    attributeFilter: ['class'],
-  })
+    function splitLinks() {
+      navLinks.forEach((link) => {
+        const splitLink = SplitText.create(link, {
+          type: 'chars, words',
+          charsClass: 'nav_link_char',
+          wordsClass: 'nav_link_word',
+          mask: 'words',
+        })
 
-  navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      navAnimation('close')
+        splitLinksArray.push(splitLink)
+      })
+    }
+
+    function linksAnimation() {
+      splitLinksArray.forEach((splitLink) => {
+        navTimeline.fromTo(
+          splitLink.chars,
+          {
+            opacity: 0,
+            y: 10,
+            scaleY: 1.1,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scaleY: 1,
+            duration: 0.5,
+            stagger: 0.02,
+            ease: 'power2.inOut',
+            onComplete: () => {
+              setTimeout(() => {
+                splitLinksArray.forEach((splitLink) => {
+                  splitLink.revert()
+                })
+              }, 100)
+            },
+          },
+          '<'
+        )
+      })
+    }
+
+    function navAnimation(state) {
+      if (state === 'open') {
+        navTimeline.play()
+        splitLinks()
+        linksAnimation()
+      } else if (state === 'close') {
+        navTimeline.reverse()
+      }
+    }
+
+    // Use MutationObserver to watch for class changes on navTrigger
+    observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === 'attributes' &&
+          mutation.attributeName === 'class'
+        ) {
+          if (navTrigger.classList.contains('w--open')) {
+            navAnimation('open')
+          } else {
+            navAnimation('close')
+          }
+        }
+      })
     })
-  })
+
+    // Start observing the navTrigger for attribute changes
+    observer.observe(navTrigger, {
+      attributes: true,
+      attributeFilter: ['class'],
+    })
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        navAnimation('close')
+      })
+    })
+  }
+
+  function destroyNavAnimation() {
+    if (!navTimeline && !observer) return
+
+    // Disconnect observer
+    if (observer) {
+      observer.disconnect()
+      observer = null
+    }
+
+    // Kill timeline
+    if (navTimeline) {
+      navTimeline.kill()
+      navTimeline = null
+    }
+
+    // Revert split text
+    splitLinksArray.forEach((splitLink) => {
+      splitLink.revert()
+    })
+    splitLinksArray = []
+
+    // Reset styles
+    if (navBackground) {
+      gsap.set(navBackground, { clearProps: 'all' })
+    }
+    if (navMenu) {
+      gsap.set(navMenu, { clearProps: 'all' })
+    }
+    navLinks.forEach((link) => {
+      gsap.set(link, { clearProps: 'all' })
+    })
+  }
+
+  // Desktop off, otherwise on
+  const desktopMq = window.matchMedia('(min-width: 992px)')
+
+  function apply() {
+    if (desktopMq.matches) destroyNavAnimation()
+    else initNavAnimation()
+  }
+
+  apply()
+  desktopMq.addEventListener('change', apply)
 }

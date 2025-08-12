@@ -1,35 +1,39 @@
 import KeenSlider from 'keen-slider'
 
 export const DiarySlider = () => {
-  // Get the diary items layout element
   const diaryItemsLayout = document.querySelector('.diary_items_layout')
+  let slider = null
 
-  if (!diaryItemsLayout) {
-    console.warn('Element with class "diary_items_layout" not found')
-    return
-  }
+  function initSlider() {
+    if (slider || !diaryItemsLayout) return
+    const items = diaryItemsLayout.querySelectorAll('.diary_item')
+    if (!items.length) return
 
-  // Get all child elements
-  const children = Array.from(diaryItemsLayout.children)
-
-  if (children.length === 0) {
-    console.warn('No child elements found in diary_items_layout')
-    return
-  }
-
-  // Initialize KeenSlider after a delay to ensure DOM has settled
-
-  const items = diaryItemsLayout.querySelectorAll('.diary_item')
-  if (items.length > 0) {
-    new KeenSlider(diaryItemsLayout, {
+    slider = new KeenSlider(diaryItemsLayout, {
       loop: true,
+      selector: '.diary_item',
       slides: {
         perView: 1.2,
         origin: 'center',
         spacing: 16,
       },
-
-      selector: '.diary_item',
     })
   }
+
+  function destroySlider() {
+    if (!slider) return
+    slider.destroy()
+    slider = null
+  }
+
+  // Desktop off, otherwise on
+  const desktopMq = window.matchMedia('(min-width: 992px)')
+
+  function apply() {
+    if (desktopMq.matches) destroySlider()
+    else initSlider()
+  }
+
+  document.addEventListener('DOMContentLoaded', apply)
+  desktopMq.addEventListener('change', apply)
 }
