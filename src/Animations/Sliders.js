@@ -37,3 +37,27 @@ export const DiarySlider = () => {
   document.addEventListener('DOMContentLoaded', apply)
   desktopMq.addEventListener('change', apply)
 }
+
+export const ProductSlider = () => {
+  const productHeroSlider = document.querySelector('.product-hero_slider')
+  let slider = null
+  function initSlider() {
+    if (slider || !productHeroSlider) return
+    const slides = productHeroSlider.querySelectorAll(
+      '.product-hero_slider_slide'
+    )
+    if (!slides.length) return
+
+    slider = new KeenSlider(productHeroSlider, {
+      loop: true,
+      selector: '.product-hero_slider_slide',
+      slides: {
+        perView: 1,
+        origin: 'center',
+        spacing: 0,
+      },
+    })
+  }
+
+  initSlider()
+}
