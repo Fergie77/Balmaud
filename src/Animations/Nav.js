@@ -13,9 +13,9 @@ const darkNavElements = [
   '.nav_button_icon',
 ]
 
-const isDarkNav = document
-  .querySelector(darkNavElements[3])
-  .classList.contains(darkNavClass)
+const isDarkNav = document.querySelector(darkNavElements[3])
+  ? document.querySelector(darkNavElements[3]).classList.contains(darkNavClass)
+  : false
 
 let onDarkSection = false
 
