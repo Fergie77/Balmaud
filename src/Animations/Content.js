@@ -23,20 +23,18 @@ export const contentFadeIn = () => {
 }
 
 export const heroBottleFadeIn = () => {
-  const content = document.querySelectorAll('.hero_bottle_image')
-  content.forEach((element) => {
-    gsap.set(element, { filter: 'brightness(0) blur(10px)' })
-    ScrollTrigger.create({
-      trigger: element,
-      start: 'top 100%',
-      end: 'bottom top',
-      onEnter: () =>
-        gsap.to(element, {
-          filter: 'brightness(1) blur(0px)',
-          duration: 1,
-          delay: 0.1,
-          ease: 'none',
-        }),
-    })
+  const content = document.querySelector('.hero_bottle_image')
+
+  ScrollTrigger.create({
+    trigger: content,
+    start: 'top 100%',
+    end: 'bottom top',
+    onEnter: () =>
+      gsap.to(content, {
+        filter: 'brightness(1) blur(0px)',
+        duration: 1,
+        delay: 0.1,
+        ease: 'none',
+      }),
   })
 }

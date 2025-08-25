@@ -1,6 +1,7 @@
 import { contentFadeIn, heroBottleFadeIn } from './Animations/Content'
 import { dropdowns } from './Animations/Dropdowns'
 import { floatingCart } from './Animations/FloatingCart'
+import { maskedImages } from './Animations/MaskedImages'
 import { navColourSwap, FooterFade, mobileNav } from './Animations/Nav'
 import { DiarySlider, ProductSlider } from './Animations/Sliders'
 import { fadeIn, splitFadeIn } from './Animations/Text'
@@ -40,5 +41,5 @@ contentFadeIn()
 heroBottleFadeIn()
 navColourSwap()
 FooterFade()
-
+maskedImages()
 mobileNav()
