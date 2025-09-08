@@ -34,7 +34,7 @@ export const DiarySlider = () => {
     else initSlider()
   }
 
-  document.addEventListener('DOMContentLoaded', apply)
+  apply()
   desktopMq.addEventListener('change', apply)
 }
 
