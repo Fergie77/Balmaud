@@ -7,10 +7,11 @@ gsap.registerPlugin(ScrollTrigger, SplitText)
 const darkNavClass = 'w-variant-5bc79521-0627-45d0-3288-096227e51632'
 
 const darkNavElements = [
-  '.nav_component',
+  '.nav_background',
   '.nav_container',
   '.nav_brand',
   '.nav_button_icon',
+  '.nav_link',
 ]
 
 const isDarkNav = document.querySelector(darkNavElements[3])
