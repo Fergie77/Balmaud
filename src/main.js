@@ -7,6 +7,8 @@ import { DiarySlider, ProductSlider } from './Animations/Sliders'
 import { fadeIn, splitFadeIn } from './Animations/Text'
 import { Timeline } from './Animations/Timeline'
 
+console.log('main.js loaded')
+
 history.scrollRestoration = 'manual'
 
 window.scrollTo(0, 0)
