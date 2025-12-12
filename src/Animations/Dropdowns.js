@@ -1,6 +1,5 @@
 export const dropdowns = () => {
   const dropdowns = document.querySelectorAll('.product-hero_dropdown')
-
   dropdowns.forEach((dropdown) => {
     const dropdownToggle = dropdown.querySelector(
       '.product-hero_dropdown_toggle'
