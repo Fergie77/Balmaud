@@ -7,49 +7,47 @@ export const maskedImages = () => {
   const maskedImages = document.querySelectorAll('.manifesto_image_mask')
 
   maskedImages.forEach((maskedImage) => {
-
     const imageSibling = maskedImage.previousElementSibling
     if (imageSibling) {
       gsap.set(imageSibling, { opacity: 0 })
     }
 
     const tl = gsap.timeline()
-    tl.fromTo(imageSibling, {
-      opacity: 0,
-      duration: 1.5,
-      ease: 'power2.inOut',
-    }, {
-      opacity: 1,
-      duration: 1.5,
-      ease: 'power2.inOut',
-    })
+    tl.fromTo(
+      imageSibling,
+      {
+        opacity: 0,
+        duration: 1.5,
+        ease: 'power2.inOut',
+      },
+      {
+        opacity: 1,
+        duration: 1.5,
+        ease: 'power2.inOut',
+      }
+    )
 
-    tl.fromTo(maskedImage, {
-      width: '50%',
-      ease: 'power2.inOut',
-      duration: 1.5,
-    }, {
-      width: '0%',
-      ease: 'power2.inOut',
-      duration: 1.5,
-    },'<')
+    tl.fromTo(
+      maskedImage,
+      {
+        width: '50%',
+        ease: 'power2.inOut',
+        duration: 1.5,
+      },
+      {
+        width: '0%',
+        ease: 'power2.inOut',
+        duration: 1.5,
+      },
+      '<'
+    )
 
-    tl.fromTo(maskedImage.querySelector('img'), {
-      scale: 1.25,
-      ease: 'power2.out',
-      duration: 1.8,
-    }, {
-      scale: 1,
-      ease: 'power2.out',
-      duration: 1.8,
-    }, "<")
-    
     ScrollTrigger.create({
       trigger: maskedImage,
       start: 'top 70%',
       end: 'bottom 70%',
- 
       animation: tl,
+    })
   })
 }
 
