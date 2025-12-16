@@ -11,11 +11,21 @@ export const maskedImages = () => {
       trigger: maskedImage,
       start: 'top 70%',
       end: 'bottom 70%',
-      animation: gsap.to(maskedImage, {
-        width: '0%',
-        ease: 'power2.inOut',
-        duration: 1.5,
-      }),
+      animation: gsap.fromTo(
+        maskedImage,
+        {
+          opacity: 1,
+          width: '50%',
+          ease: 'power2.inOut',
+          duration: 1.5,
+        },
+        {
+          opacity: 1,
+          width: '0%',
+          ease: 'power2.inOut',
+          duration: 1.5,
+        }
+      ),
     })
   })
 }
