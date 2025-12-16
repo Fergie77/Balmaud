@@ -3,7 +3,7 @@ import { dropdowns } from './Animations/Dropdowns'
 import { floatingCart } from './Animations/FloatingCart'
 import { maskedImages, maskedProductImage } from './Animations/MaskedImages'
 import { navColourSwap, FooterFade, mobileNav } from './Animations/Nav'
-import { DiarySlider, ProductSlider } from './Animations/Sliders'
+import { DiarySlider } from './Animations/Sliders'
 import { fadeIn, splitFadeIn } from './Animations/Text'
 import { Timeline } from './Animations/Timeline'
 
@@ -20,7 +20,7 @@ if (document.fonts && document.fonts.ready) {
       fadeIn(document, '[balmaud-animation="fade-in"]')
       // Initialize diary slider after animations
       DiarySlider()
-      ProductSlider()
+      //ProductSlider()
       floatingCart()
       dropdowns()
     }, 10)
