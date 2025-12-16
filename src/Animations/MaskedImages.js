@@ -44,8 +44,8 @@ export const maskedImages = () => {
 
     ScrollTrigger.create({
       trigger: maskedImage,
-      start: 'top 80%',
-      end: 'bottom 80%',
+      start: 'top 90%',
+      end: 'bottom 90%',
       animation: tl,
     })
   })
