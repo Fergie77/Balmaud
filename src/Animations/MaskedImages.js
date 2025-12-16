@@ -30,7 +30,7 @@ export const maskedImages = () => {
     tl.fromTo(
       maskedImage,
       {
-        width: '50%',
+        width: '25%',
         ease: 'power2.inOut',
         duration: 1.5,
       },
@@ -44,8 +44,8 @@ export const maskedImages = () => {
 
     ScrollTrigger.create({
       trigger: maskedImage,
-      start: 'top 70%',
-      end: 'bottom 70%',
+      start: 'top 80%',
+      end: 'bottom 80%',
       animation: tl,
     })
   })
