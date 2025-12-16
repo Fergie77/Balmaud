@@ -57,12 +57,15 @@ export const fadeIn = (container, selector) => {
 
   text.forEach((element) => {
     const delay = parseFloat(element.getAttribute('data-delay')) || 0
+    // If the element has [fade-in-sooner], use 'top 100%' as start, else use 'top 80%'
+    const hasFadeInSooner = element.hasAttribute('fade-in-sooner')
+    const startValue = hasFadeInSooner ? 'top 100%' : 'top 80%'
 
     gsap.set(element, { opacity: 0 })
 
     ScrollTrigger.create({
       trigger: element,
-      start: 'top 80%',
+      start: startValue,
       end: 'bottom top',
       onEnter: () => {
         gsap.to(element, {
