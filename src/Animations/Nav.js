@@ -146,6 +146,11 @@ export const mobileNav = () => {
       {
         pointerEvents: 'auto',
         opacity: 1,
+        onStart: () => {
+          if (navOverlay) {
+            navOverlay.style.display = 'block'
+          }
+        },
       },
       '<'
     )
@@ -161,6 +166,9 @@ export const mobileNav = () => {
         duration: 0.5,
         ease: 'power2.inOut',
         onReverseComplete: () => {
+          if (navOverlay) {
+            navOverlay.style.display = 'none'
+          }
           if (!isDarkNav && !onDarkSection) {
             darkNavElements.forEach((element) => {
               document.querySelector(element).classList.remove(darkNavClass)
@@ -279,6 +287,9 @@ export const mobileNav = () => {
     }
     if (navMenu) {
       gsap.set(navMenu, { clearProps: 'all' })
+    }
+    if (navOverlay) {
+      gsap.set(navOverlay, { clearProps: 'all' })
     }
     navLinks.forEach((link) => {
       gsap.set(link, { clearProps: 'all' })
