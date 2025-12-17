@@ -105,9 +105,9 @@ export const mobileNav = () => {
   const navMenu = document.querySelector('.nav_menu')
   const navBackground = document.querySelector('.nav_menu_background')
   const navLinks = document.querySelectorAll('.nav_link')
-  const navOverlay = document.querySelector('.w-nav-overlay')
 
   let navTimeline = null
+  let navOverlay = null
   let observer = null
   let splitLinksArray = []
 
@@ -136,18 +136,6 @@ export const mobileNav = () => {
           }
         },
       }
-    )
-    navTimeline.fromTo(
-      navOverlay,
-      {
-        pointerEvents: 'none',
-        opacity: 0,
-      },
-      {
-        pointerEvents: 'auto',
-        opacity: 1,
-      },
-      '<'
     )
     navTimeline.fromTo(
       navMenu,
@@ -226,6 +214,26 @@ export const mobileNav = () => {
       }
     }
 
+    function setupOverlay() {
+      if (navOverlay || !navTimeline) return
+      const overlayEl = document.querySelector('.w-nav-overlay')
+      if (!overlayEl) return
+      navOverlay = overlayEl
+
+      navTimeline.fromTo(
+        navOverlay,
+        {
+          pointerEvents: 'none',
+          opacity: 0,
+        },
+        {
+          pointerEvents: 'auto',
+          opacity: 1,
+        },
+        '<'
+      )
+    }
+
     // Use MutationObserver to watch for class changes on navTrigger
     observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
@@ -234,6 +242,7 @@ export const mobileNav = () => {
           mutation.attributeName === 'class'
         ) {
           if (navTrigger.classList.contains('w--open')) {
+            setupOverlay()
             navAnimation('open')
           } else {
             navAnimation('close')
