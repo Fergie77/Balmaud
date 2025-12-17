@@ -146,11 +146,6 @@ export const mobileNav = () => {
       {
         pointerEvents: 'auto',
         opacity: 1,
-        onStart: () => {
-          if (navOverlay) {
-            navOverlay.style.display = 'block'
-          }
-        },
       },
       '<'
     )
@@ -167,7 +162,7 @@ export const mobileNav = () => {
         ease: 'power2.inOut',
         onReverseComplete: () => {
           if (navOverlay) {
-            navOverlay.style.display = 'none'
+            navOverlay.style.pointerEvents = 'none'
           }
           if (!isDarkNav && !onDarkSection) {
             darkNavElements.forEach((element) => {
