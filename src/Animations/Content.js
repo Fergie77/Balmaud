@@ -13,8 +13,8 @@ export const contentFadeIn = () => {
       start: 'top 100%',
       end: 'bottom top',
       onEnter: () =>
-        gsap.from(element, {
-          filter: 'brightness(0)',
+        gsap.to(element, {
+          filter: 'brightness(1)',
           duration: 1,
           ease: 'none',
         }),
