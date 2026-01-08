@@ -1,6 +1,7 @@
 import { contentFadeIn, heroBottleFadeIn } from './Animations/Content'
 import { dropdowns } from './Animations/Dropdowns'
 import { floatingCart } from './Animations/FloatingCart'
+import { heroImageAnimation } from './Animations/HeroImage'
 import { maskedImages, maskedProductImage } from './Animations/MaskedImages'
 import { navColourSwap, FooterFade, mobileNav } from './Animations/Nav'
 import { DiarySlider } from './Animations/Sliders'
@@ -23,6 +24,7 @@ if (document.fonts && document.fonts.ready) {
       //ProductSlider()
       floatingCart()
       dropdowns()
+      heroImageAnimation()
     }, 10)
   })
 } else {
@@ -33,6 +35,7 @@ if (document.fonts && document.fonts.ready) {
       fadeIn(document, '[balmaud-animation="fade-in"]')
       // Initialize diary slider after animations
       DiarySlider()
+      heroImageAnimation()
     }, 10)
   )
 }
