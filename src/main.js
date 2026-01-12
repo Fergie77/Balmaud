@@ -5,7 +5,6 @@ import { heroImageAnimation } from './Animations/HeroImage'
 import { maskedImages, maskedProductImage } from './Animations/MaskedImages'
 import { navColourSwap, FooterFade, mobileNav } from './Animations/Nav'
 import { DiarySlider } from './Animations/Sliders'
-import { smileyEmbedAnimation } from './Animations/SmileyEmbed'
 import { fadeIn, splitFadeIn } from './Animations/Text'
 import { Timeline } from './Animations/Timeline'
 
@@ -26,7 +25,6 @@ if (document.fonts && document.fonts.ready) {
       floatingCart()
       dropdowns()
       heroImageAnimation()
-      smileyEmbedAnimation()
     }, 10)
   })
 } else {
