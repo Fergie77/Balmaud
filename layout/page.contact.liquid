@@ -1,0 +1,1261 @@
+<!doctype html>
+<html data-wf-page="697229c384dde45faee46dd2" data-wf-site="675c6140230093d4946dd46e" lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <title>Balmaud Distillery</title>
+  <meta content="Balmaud is a modern Scottish distillery creating considered spirits with character, rooted in tradition and crafted with care. Nothing Wasted, Nothing Rushed, Nothing Ordinary" name="description">
+  <meta content="Balmaud Distillery" property="og:title">
+  <meta content="Balmaud is a modern Scottish distillery creating considered spirits with character, rooted in tradition and crafted with care. Nothing Wasted, Nothing Rushed, Nothing Ordinary" property="og:description">
+  <meta content="Balmaud Distillery" property="twitter:title">
+  <meta content="Balmaud is a modern Scottish distillery creating considered spirits with character, rooted in tradition and crafted with care. Nothing Wasted, Nothing Rushed, Nothing Ordinary" property="twitter:description">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="{{ 'normalize.css' | asset_url }}" rel="stylesheet" type="text/css">
+  <link href="{{ 'webflow.css' | asset_url }}" rel="stylesheet" type="text/css">
+  <link href="{{ 'balmaud.webflow.css' | asset_url }}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Bitter:400,700,400italic","Fira Sans:regular,500,600"]  }});</script>
+  <script src="https://use.typekit.net/tqd4ijo.js" type="text/javascript"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  
+            {% if settings.favicon == blank %}
+              <link href="{{ 'favicon.png' | asset_url }}" rel="shortcut icon" type="image/x-icon">
+            {% else %}
+              <link rel="shortcut icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
+            {% endif %}
+        
+  
+            {% if settings.apple_touch_icon == blank %}
+              <link href="{{ 'webclip.png' | asset_url }}" rel="apple-touch-icon">
+            {% else %}
+              <link rel="apple-touch-icon" type="image/png" href="{{ settings.apple_touch_icon | img_url: '32x32' }}">
+            {% endif %}
+        
+  <style>
+[balmaud-animation="split-fade-in"], [balmaud-animation="fade-in"]{
+opacity: 0;
+}
+[balmaud-animation="content-fade-in"]{
+filter: brightness(0);
+}
+.hero_bottle_image{
+filter: brightness(0) blur(10px);
+}
+[data-preload]{
+opacity: 0;
+}
+</style>
+  <!--  Alpine Focus Plugin  -->
+  <script defer="" src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+  <!--  Alpine JS  -->
+  <script defer="" src="{{ 'alpinejs3.js' | asset_url }}"></script>
+  <script defer="" auto="" min="" src="https://cdn.jsdelivr.net/gh/liquify-pro/core@latest/script.js"></script>
+  <link href="{{ canonical_url }}" rel="canonical">
+  <style>
+    /* Enable native cross-document transitions */
+    @view-transition { navigation: auto; }
+    /* Only animate your main wrapper */
+    #main-wrapper { view-transition-name: main; }
+    header, footer { view-transition-name: none; }
+    /* Simple crossfade for the main area */
+    ::view-transition-old(main) { animation: fade .35s ease both; }
+    ::view-transition-new(main) { animation: fade .35s ease reverse; }
+    @keyframes fade { from { opacity:1 } to { opacity:0 } }
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+    }
+  </style>
+<script src="{{ 'li_helper.js' | asset_url }}" type="text/javascript"></script>{{ content_for_header }}</head>
+<body>
+  <div class="page-wrapper">
+    <div class="global-styles w-embed">
+      <style>
+/* Make text look crisper and more legible in all browsers */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+/* Focus state style for keyboard navigation for the focusable elements */
+*[tabindex]:focus-visible,
+  input[type="file"]:focus-visible {
+   outline: 0.125rem solid #4d65ff;
+   outline-offset: 0.125rem;
+}
+/* Set color style to inherit */
+.inherit-color * {
+    color: inherit;
+}
+/* Get rid of top margin on first element in any rich text element */
+.w-richtext > :not(div):first-child, .w-richtext > div:first-child > :first-child {
+  margin-top: 0 !important;
+}
+/* Get rid of bottom margin on last element in any rich text element */
+.w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+	margin-bottom: 0 !important;
+}
+/* Make sure containers never lose their center alignment */
+.container-medium,.container-small, .container-large {
+	margin-right: auto !important;
+  margin-left: auto !important;
+}
+/* 
+Make the following elements inherit typography styles from the parent and not have hardcoded values. 
+Important: You will not be able to style for example "All Links" in Designer with this CSS applied.
+Uncomment this CSS to use it in the project. Leave this message for future hand-off.
+*/
+/*
+a,
+.w-input,
+.w-select,
+.w-tab-link,
+.w-nav-link,
+.w-dropdown-btn,
+.w-dropdown-toggle,
+.w-dropdown-link {
+  color: inherit;
+  text-decoration: inherit;
+  font-size: inherit;
+}
+*/
+/* Apply "..." after 3 lines of text */
+.text-style-3lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+/* Apply "..." after 2 lines of text */
+.text-style-2lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+/* Adds inline flex display */
+.display-inlineflex {
+  display: inline-flex;
+}
+/* These classes are never overwritten */
+.hide {
+  display: none !important;
+}
+@media screen and (max-width: 991px) {
+    .hide, .hide-tablet {
+        display: none !important;
+    }
+}
+  @media screen and (max-width: 767px) {
+    .hide-mobile-landscape{
+      display: none !important;
+    }
+}
+  @media screen and (max-width: 479px) {
+    .hide-mobile{
+      display: none !important;
+    }
+}
+.margin-0 {
+  margin: 0rem !important;
+}
+.padding-0 {
+  padding: 0rem !important;
+}
+.spacing-clean {
+padding: 0rem !important;
+margin: 0rem !important;
+}
+.margin-top {
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-top {
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-right {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-right {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-bottom {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-bottom {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-left {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+.padding-left {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+.margin-horizontal {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+.padding-horizontal {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+.margin-vertical {
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-vertical {
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+@media (min-width: 480px) {
+  .page-wrapper :is(
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a,
+    ul,
+    li,
+    .turned-detail-text_wrapper,
+    .button
+  ):not(.no-trim):not(.no-trim *) {
+    text-box: trim-both cap alphabetic;
+  }
+}
+</style>
+      <style>
+.is-white{
+--base-color-neutral--white: black;
+}
+</style>
+      <style>
+.product-hero_dropdown > .product-hero_dropdown
+{
+visibility: hidden;
+}
+.product-hero_dropdown.is-open > .product-hero_dropdown
+{
+visibility: auto;
+}
+</style>
+      <style>
+.nav_link_word-mask{
+text-box: trim-both cap alphabetic;
+padding-block: 0.1rem;
+margin-block: -0.1rem;
+}
+</style>
+    </div>
+    <div class="page_code_wrap-2">
+      <div class="page_code_base w-embed">
+        <style>
+/* variables */
+:root {
+	--font-weight--inherit: inherit;
+	--font-weight--100: 100;
+	--font-weight--200: 200;
+	--font-weight--300: 300;
+	--font-weight--400: 400;
+	--font-weight--500: 500;
+	--font-weight--600: 600;
+	--font-weight--700: 700;
+	--font-weight--800: 800;
+	--font-weight--900: 900;
+	--text-transform--none: none;
+	--text-transform--uppercase: uppercase;
+	--text-transform--capitalize: capitalize;
+	--text-transform--lowercase: lowercase;
+	--text-transform--inherit: inherit;
+	--max-width--none: none;
+}
+/* default styles */
+body {
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: inherit;
+	line-height: inherit;
+	font-weight: inherit;
+}
+h1, h2, h3, h4, h5, h6, p, label, blockquote {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+button {
+	background-color: unset;
+	padding: unset;
+	text-align: inherit;
+	cursor: pointer;
+}
+img::selection {
+	background: transparent;
+}
+:is(h1, h2, h3, h4, h5, h6, p) a {
+	text-decoration: underline;
+}
+.w-richtext > *:first-child {
+	margin-top: 0;
+}
+.w-richtext > *:last-child {
+	margin-bottom: 0;
+}
+video {
+	width: 100%;
+	object-fit: cover;
+}
+video.wf-empty {
+	padding: 0;
+}
+svg {
+	display: block;
+}
+section, header, footer {
+	position: relative;
+}
+/* line clamp */
+.u-line-clamp-1, .u-line-clamp-2, .u-line-clamp-3, .u-line-clamp-4 {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+.u-line-clamp-2 { -webkit-line-clamp: 2; }
+.u-line-clamp-3 { -webkit-line-clamp: 3; }
+.u-line-clamp-4 { -webkit-line-clamp: 4; }
+/* component attributes */
+/* section padding */
+[data-padding-top="none"] { padding-top: var(--padding-vertical--none); }
+[data-padding-bottom="none"] { padding-bottom: var(--padding-vertical--none); }
+[data-padding-top="small"] { padding-top: var(--padding-vertical--small); }
+[data-padding-bottom="small"] { padding-bottom: var(--padding-vertical--small); }
+[data-padding-top="medium"] { padding-top: var(--padding-vertical--medium); }
+[data-padding-bottom="medium"] { padding-bottom: var(--padding-vertical--medium); }
+[data-padding-top="large"] { padding-top: var(--padding-vertical--large); }
+[data-padding-bottom="large"] { padding-bottom: var(--padding-vertical--large); }
+[data-padding-top="xlarge"] { padding-top: var(--padding-vertical--xlarge); }
+[data-padding-bottom="xlarge"] { padding-bottom: var(--padding-vertical--xlarge); }
+[data-padding-top="xxlarge"] { padding-top: var(--padding-vertical--xxlarge); }
+[data-padding-bottom="xxlarge"] { padding-bottom: var(--padding-vertical--xxlarge); }
+[data-padding-top="huge"] { padding-top: var(--padding-vertical--huge); }
+[data-padding-bottom="huge"] { padding-bottom: var(--padding-vertical--huge); }
+[data-padding-top="xhuge"] { padding-top: var(--padding-vertical--xhuge); }
+[data-padding-bottom="xhuge"] { padding-bottom: var(--padding-vertical--xhuge); }
+[data-padding-top="xxhuge"] { padding-top: var(--padding-vertical--xxhuge); }
+[data-padding-bottom="xxhuge"] { padding-bottom: var(--padding-vertical--xxhuge); }
+/* hide section if it has no cms items */
+[data-cms-check="true"]:not(:has(.w-dyn-item)) {
+	display: none;
+}
+</style>
+      </div>
+      <div class="page_code_color w-embed">
+        <style>
+/* theme light */
+:root,
+[data-theme="light"],
+[data-theme="dark"] [data-theme="invert"] {
+	--theme--background: var(--swatch--light);
+	--theme--text: var(--swatch--dark);
+	--theme--border: var(--swatch--light-secondary);
+	/* button primary */
+	--button--background: var(--swatch--brand);
+	--button--text: var(--swatch--brand-text);
+	--button--border: var(--swatch--brand);
+	--button--background-hover: var(--swatch--dark);
+	--button--text-hover: var(--swatch--light);
+	--button--border-hover: var(--swatch--dark);
+	/* button secondary */
+	--button-secondary--background: var(--swatch--transparent);
+	--button-secondary--text: var(--swatch--dark);
+	--button-secondary--border: var(--swatch--light-secondary);
+	--button-secondary--background-hover: var(--swatch--brand);
+	--button-secondary--text-hover: var(--swatch--brand-text);
+	--button-secondary--border-hover: var(--swatch--brand);
+}
+/* theme dark */
+[data-theme="dark"],
+[data-theme="invert"],
+[data-theme="light"] [data-theme="invert"] {
+	--theme--background: var(--swatch--dark);
+	--theme--text: var(--swatch--light);
+	--theme--border: var(--swatch--dark-secondary);
+	/* button primary */
+	--button--background: var(--swatch--brand);
+	--button--text: var(--swatch--brand-text);
+	--button--border: var(--swatch--brand);
+	--button--background-hover: var(--swatch--light);
+	--button--text-hover: var(--swatch--dark);
+	--button--border-hover: var(--swatch--light);
+	/* button secondary */
+	--button-secondary--background: var(--swatch--transparent);
+	--button-secondary--text: var(--swatch--light);
+	--button-secondary--border: var(--swatch--dark-secondary);
+	--button-secondary--background-hover: var(--swatch--brand);
+	--button-secondary--text-hover: var(--swatch--brand-text);
+	--button-secondary--border-hover: var(--swatch--brand);
+}
+/* button secondary */
+[data-button-style="secondary"] {
+	--button--background: var(--button-secondary--background);
+	--button--text: var(--button-secondary--text);
+	--button--border: var(--button-secondary--border);
+	--button--background-hover: var(--button-secondary--background-hover);
+	--button--text-hover: var(--button-secondary--text-hover);
+	--button--border-hover: var(--button-secondary--border-hover);
+}
+/* apply colors */
+:is(c, :where([data-theme]:not([data-theme="inherit"]))) {
+	background-color: var(--theme--background);
+	color: var(--theme--text);
+}
+</style>
+      </div>
+      <div class="page_code_responsive w-embed">
+        <style>
+/* desktop */
+:root {
+	font-size: clamp(1rem, 0.23525rem + 0.85vw, 2.1875rem);
+}
+/* tablet */
+@media screen and (max-width: 991px) {
+	:root {
+		/* custom */
+		--padding-horizontal--main: 2rem;
+		/* adaptive sizes */
+		--size--2rem: 1.75rem;
+		--size--2-5rem: 2.18rem;
+		--size--3rem: 2.52rem;
+		--size--3-5rem: 2.73rem;
+		--size--4rem: 3rem;
+		--size--4-5rem: 3.375rem;
+		--size--5rem: 3.75rem;
+		--size--5-5rem: 4.125rem;
+		--size--6rem: 4.5rem;
+		--size--6-5rem: 4.875rem;
+		--size--7rem: 5.25rem;
+		--size--7-5rem: 5.625rem;
+		--size--8rem: 6rem;
+		--size--8-5rem: 6.375rem;
+		--size--9rem: 6.75rem;
+		--size--9-5rem: 7.125rem;
+		--size--10rem: 7.5rem;
+		--size--11rem: 8.25rem;
+		--size--12rem: 9rem;
+		--size--13rem: 9.75rem;
+		--size--14rem: 10.5rem;
+		--size--15rem: 11.25rem;
+		--size--16rem: 12rem;
+	}
+}
+/* landscape */
+@media screen and (max-width: 767px) {
+	:root {
+		/* custom */
+		--padding-horizontal--main: 1rem;
+    --padding-vertical--small: 1rem;
+    --padding-vertical--medium: 2rem;
+    --padding-vertical--large: 3rem;
+    --padding-vertical--small: 4rem;
+  //  --padding-vertical--medium: 5rem;
+  //  --padding-vertical--large: 6rem;
+		/* adaptive sizes */
+		--size--2-5rem: 2rem;
+		--size--3rem: 2.25rem;
+		--size--3-5rem: 2.375rem;
+		--size--4rem: 2.5rem;
+		--size--4-5rem: 2.75rem;
+		--size--5rem: 3rem;
+		--size--5-5rem: 3.25rem;
+		--size--6rem: 3.5rem;
+		--size--6-5rem: 3.75rem;
+		--size--7rem: 4rem;
+		--size--7-5rem: 4.25rem;
+		--size--8rem: 4.5rem;
+		--size--8-5rem: 4.75rem;
+		--size--9rem: 5rem;
+		--size--9-5rem: 5.25rem;
+		--size--10rem: 5.5rem;
+		--size--11rem: 5.75rem;
+		--size--12rem: 6rem;
+		--size--13rem: 6.5rem;
+		--size--14rem: 7rem;
+		--size--15rem: 7.5rem;
+		--size--16rem: 8rem;
+	}
+}
+/* portrait */
+@media screen and (max-width: 479px) {
+	:root {
+		/* custom */
+    --padding-vertical--small: 0.5rem;
+    --padding-vertical--medium: 1rem;
+    --padding-vertical--large: 1.5rem;
+    --padding-vertical--xlarge: 2rem;
+    --padding-vertical--xxlarge: 2.5rem;
+    --padding-vertical--huge: 3rem;
+    --padding-vertical--xhuge: 3.5rem;
+    --padding-vertical--xxhuge: 4rem;
+    --padding--global: 1.25rem;
+	}
+}
+</style>
+      </div>
+      <div class="page_code_custom w-embed">
+        <style>
+.mega-menu_layout{
+-webkit-overflow-scrolling: touch;
+}
+.side-nav_link::after{
+  display: flex;
+  content: "";
+  width: 0px;
+  height: 1px;
+  background: var(--link-color--link-primary);
+  transition: width .2s;
+  transition-timing-function: ease-in-back;
+  transform-origin: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+a:hover::after{
+	width:100%;
+}
+</style>
+      </div>
+      <div class="layout-grid_wrapper padding-global">
+        <div class="w-embed">
+          <style>
+html:not(.wf-design-mode) .layout-grid_wrapper {
+	display: none;
+}
+.layout-grid {
+	counter-reset: gridguides;
+}
+.layout-grid > div::before {
+  counter-increment: gridguides;
+  content: counter(gridguides);
+}
+</style>
+        </div>
+        <div class="layout-grid_container">
+          <div class="layout-grid">
+            <div class="layout-grid_column"></div>
+            <div class="layout-grid_column"></div>
+            <div class="layout-grid_column"></div>
+            <div class="layout-grid_column"></div>
+            <div class="layout-grid_column"></div>
+            <div class="layout-grid_column"></div>
+            <div class="layout-grid_column"></div>
+            <div class="layout-grid_column"></div>
+            <div class="layout-grid_column"></div>
+            <div class="layout-grid_column"></div>
+            <div class="layout-grid_column"></div>
+            <div class="layout-grid_column"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav_fixed">
+      <div data-animation="default" class="nav_component w-variant-5bc79521-0627-45d0-3288-096227e51632 w-nav" data-wf--navbar--variant="dark-nav" data-easing2="ease" data-easing="ease" data-collapse="medium" data-w-id="396176c6-906a-9f74-c6d0-8a4663dfdea9" role="banner" data-duration="400">
+        <div class="nav_ticker_container w-variant-5bc79521-0627-45d0-3288-096227e51632">
+          <div data-preload="" class="nav_ticker_wrapper">
+            <div class="nav_ticker_text">Scottish dry gin - now available</div>
+            <div class="nav_ticker_text">Scottish dry gin - now available</div>
+          </div>
+        </div>
+        <div class="nav_background w-variant-5bc79521-0627-45d0-3288-096227e51632"></div>
+        <div class="padding-global">
+          <div class="nav_container w-variant-5bc79521-0627-45d0-3288-096227e51632">
+            <div class="nav_wrapper">
+              <a href="{{ routes.root_url }}" li-object:href="routes.root_url" class="nav_brand w-variant-5bc79521-0627-45d0-3288-096227e51632 w-nav-brand"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 174 29" fill="none">
+                  <path d="M162.352 0.474609C162.352 0.474609 174 0.474609 174 12.8359C174 28.0498 160.727 28.0894 160.727 28.0894H151.892C153.319 26.4254 153.358 23.969 153.358 23.6124V4.95161C153.358 4.59504 153.319 2.13863 151.892 0.474609H162.352ZM159.777 25.4349C161.322 25.4349 168.533 24.8406 168.533 13.7471C168.533 3.16873 160.49 3.16873 160.49 3.16873H158.667V25.4349H159.777Z" fill="currentColor"></path>
+                  <path d="M142.528 0.474609H149.184C147.837 2.77254 147.837 4.99123 147.837 4.99123C147.837 4.99123 147.837 16.0054 147.837 18.858C147.837 21.7503 146.292 28.5648 137.536 28.5648C129.295 28.5648 127.512 23.4935 127.393 18.1449V4.95161C127.354 4.63465 127.354 2.13863 125.927 0.474609H134.445C133.019 2.77254 133.019 4.99123 133.019 4.99123C133.059 9.58709 133.138 13.9452 133.138 18.7788C133.138 23.652 137.021 25.5934 140.19 25.5934C143.479 25.5934 143.875 21.4333 143.875 18.9769C143.875 16.5205 143.875 4.87237 143.875 4.87237C143.875 4.3177 143.598 1.98015 142.528 0.474609Z" fill="currentColor"></path>
+                  <path d="M126.754 28.0902H117.483C118.434 27.0205 118.751 25.9111 118.473 24.6829C117.8 22.1869 116.77 20.0078 116.77 20.0078H108.172L107.499 22.5435C107.063 23.9698 106.746 25.0395 106.746 25.9508C106.746 26.7035 106.984 27.3771 107.499 28.0902H100.526C102.111 26.4262 103.061 25.1187 104.012 22.5435L109.916 5.22977C110.51 3.64499 110.748 2.6545 110.748 1.74326C110.748 1.14896 110.668 0.633911 110.47 0L114.868 0L121.92 19.3343C123.188 22.385 124.416 26.3073 126.754 28.0902ZM109.084 17.3533L115.819 17.393L112.372 8.39933L109.084 17.3533Z" fill="currentColor"></path>
+                  <path d="M97.2978 5.02736V23.5693C97.2978 23.5693 97.2978 25.788 98.7638 28.0859H90.9587C91.9492 26.6596 92.4642 25.1541 92.4642 23.5693V9.34589L85.1743 28.284C82.916 28.4029 81.3312 27.135 80.4992 25.3918L74.2393 10.0987V22.5392C74.2393 24.9956 74.6355 26.3426 75.7844 28.0859H69.5246C70.6735 26.2634 70.832 25.1937 70.9509 22.5392V6.05747C70.9509 3.4822 70.5547 2.21438 69.5246 0.510742H74.9524L85.095 21.1921L92.4642 0.510742H98.7638C97.2978 2.80867 97.2978 5.02736 97.2978 5.02736Z" fill="currentColor"></path>
+                  <path d="M49.2888 28.0894C50.7151 26.4254 50.7547 23.969 50.7547 23.6124V4.95161C50.7547 4.59504 50.7151 2.13863 49.2888 0.474609H57.0939C55.6279 2.77254 55.6279 4.99123 55.6279 4.99123V25.4349H61.5709C62.1651 25.3953 62.7198 25.1972 63.1953 24.8406L65.612 22.9389L67.6326 28.0894H49.2888Z" fill="currentColor"></path>
+                  <path d="M47.6363 28.0902H38.3653C39.3162 27.0205 39.6332 25.9111 39.3558 24.6829C38.6823 22.1869 37.6522 20.0078 37.6522 20.0078H29.0548L28.3812 22.5435C27.9454 23.9698 27.6285 25.0395 27.6285 25.9508C27.6285 26.7035 27.8662 27.3771 28.3812 28.0902H21.4082C22.993 26.4262 23.9438 25.1187 24.8947 22.5435L30.798 5.22977C31.3923 3.64499 31.63 2.6545 31.63 1.74326C31.63 1.14896 31.5508 0.633911 31.3527 0L35.7505 0L42.8027 19.3343C44.0705 22.385 45.2987 26.3073 47.6363 28.0902ZM29.966 17.3533L36.7013 17.393L33.2544 8.39933L29.966 17.3533Z" fill="currentColor"></path>
+                  <path d="M15.0554 13.3906C15.0554 13.3906 20.8398 14.6188 20.8398 20.4428C20.8398 27.0989 13.3121 28.0894 8.16161 28.0894H0C1.4263 26.4254 1.46592 23.969 1.46592 23.6124V4.95161C1.46592 4.59504 1.4263 2.13863 0 0.474609H11.4104C11.4104 0.474609 18.7796 0.514231 18.7796 6.53639C18.7796 11.2907 16.3232 12.5982 15.0554 13.3906ZM6.77493 3.12912V12.9151C6.77493 12.9151 13.7876 13.8264 13.7876 6.81373C13.7876 2.6933 7.3296 3.12912 6.77493 3.12912ZM15.4516 20.6013C15.412 14.5791 10.6576 14.5395 6.77493 14.5395V25.1575C6.77493 25.1575 6.77493 25.1575 6.81455 25.1575C7.36922 25.1575 8.24085 25.2368 9.19172 25.2368C11.9255 25.2368 15.4516 24.6821 15.4516 20.6013Z" fill="currentColor"></path>
+                </svg></a>
+              <div class="hide w-embed">{% assign prod = all_products['highland-gin'] %}</div>
+              <div class="nav_menu w-variant-5bc79521-0627-45d0-3288-096227e51632">
+                {% for link in linklists['main-menu'].links %}    <div li-for="link in linklists['main-menu'].links">
+                                    
+                  
+                            <a li-object="link.title" li-object:href="link.url" href="{{ link.url }}" class="nav_link w-variant-5bc79521-0627-45d0-3288-096227e51632">{{ link.title }}</a>
+                            
+                
+                        </div>
+{% endfor %}
+                <div class="hide-desktop"></div>
+              </div>
+              <div class="nav_menu_background">
+                <div class="nav_menu_detail-text">
+                  <p class="nav_menu_detail-text_item">FAMILY GROWN FOR<br>THREE GENERATIONS</p>
+                  <p class="nav_menu_detail-text_item">THIS IS OUR<br>SPIRIT</p>
+                  <p class="nav_menu_detail-text_item">NEW TO DISTILLING<br>NOT TO BARLEY</p>
+                </div><img src="{{ 'HARE_DETAIL.svg' | asset_url }}" loading="lazy" alt="" class="nav_menu_background_detail-image">
+              </div>
+              <a href="about.html" class="nav_link w-variant-5bc79521-0627-45d0-3288-096227e51632 temporary">About</a>
+              <a href="private-casks.html" class="nav_link w-variant-5bc79521-0627-45d0-3288-096227e51632 temporary">Private CAsks</a>
+            </div>
+            <div class="nav_aside">
+              <div class="nav_mini-cart">
+                <script>
+    document.addEventListener('alpine:init', () => {
+
+    Alpine.data('handleMinicart', () => ({
+        init() {
+            console.log('handleMinicart init')
+        },
+        cart: {
+            note: null,
+            attributes: {},
+            items: [],
+            currency: window.Shopify.currency.active,
+            cart_level_discount_applications: [],
+            response: {
+                result : {},
+                show : false,
+                timeout : 5000,
+            },
+            item_count: 0,
+            total_price:0,
+            total_weight: 0,
+            total_discount: 0,
+            original_total_price: 0,
+            items_subtotal_price: 0
+        },
+        _abortController : null,
+        initAbortController() {
+            if(this._abortController) {
+                this._abortController.abort('abort previous request');
+            }
+            this._abortController = new AbortController()
+        },
+        getAbortControllerSignal() {
+            return this._abortController.signal
+        },
+        resetAbortController() {
+            this._abortController = null;
+        },
+        toggleMiniCart() {
+            console.log('(minicart.js) toggleMiniCart called');
+
+            LiquifyHelper.handleTriggerClick();
+
+            this.getCart();
+        },
+
+        /**
+         * Get the cart data.
+         */
+        async getCart() {
+            this.initAbortController()
+            await fetch(window.Shopify.routes.root + 'cart.js', {
+                method: 'GET',
+                signal: this.getAbortControllerSignal(),
+                headers: {'Content-Type': 'application/json'},
+            })
+                .then(response => response.json())
+                .then(data => {
+                    this.resetAbortController();
+
+                    this.cart.item_count = data.item_count;
+
+                    this.cart.items = data.items.map((item) => {
+                        item.title = this.htmlspecialchars_decode(item.title)
+                        return item
+                    })
+
+
+                    this.cart.total_price = data.total_price;
+                    this.cart.total_weight = data.total_weight;
+                    this.cart.total_discount = data.total_discount;
+                    this.cart.original_total_price = data.original_total_price;
+
+                    this.$dispatch('carttotalitems', data.item_count);
+                    this.$dispatch('currentcartitems', this.cart.items);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        },
+
+        /**
+         * @param key
+         * @param quantity
+         */
+        increaseCartItemQuantity(key, quantity) {
+            this.updateCartItemQuantity(key, parseInt(quantity) + 1);
+        },
+
+        /**
+         * @param key
+         * @param quantity
+         */
+        decreaseCartItemQuantity(key, quantity) {
+            this.updateCartItemQuantity(key, parseInt(quantity) - 1);
+        },
+
+        /**
+         * Update the cart item.
+         *
+         * @param key
+         * @param quantity
+         */
+        updateCartItemQuantity(key, quantity) {
+            this.initAbortController();
+            console.log('updateCartItemQuantity(): key, quantity: ', key, quantity);
+            this.cart.items.filter((product)  => {
+                if(product.key === key) {
+                    product.quantity = quantity
+                }
+            })
+            let updates = {};
+            updates[key] = quantity;
+            fetch(window.Shopify.routes.root + 'cart/update.js', {
+                method: 'POST',
+                signal: this.getAbortControllerSignal(),
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ updates }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    this.resetAbortController();
+                    console.log('updateCartItemQuantity(): ', data);
+
+                    this.$dispatch('cartupdated', this.cart.items);
+                    this.$dispatch('showcartmessage', { status: data.status, message: data.message, description: data.description });
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    this.$dispatch('showcartmessage', { status: error?.status, message: error, description: error });
+                });
+        },
+
+        /**
+         * Format monetary values.
+         */
+        moneyFormat(value, minor = true) {
+            return LiquifyHelper.moneyFormat(value, minor)
+        },
+
+        htmlspecialchars_decode(string) {
+            return LiquifyHelper.htmlspecialchars_decode(string)
+        },
+
+        /**
+         * Shows the minicart api message
+         * @param event
+         */
+        showCartMessage(event) {
+            if(event?.detail?.status) {
+                this.cart.response.result = event.detail ?? {}
+                this.cart.response.show = true
+                setTimeout(() => {
+                    this.cart.response.result = {};
+                    this.cart.response.show = false
+                }, this.cart.response.timeout ?? 5000)
+            }
+        },
+
+        async returnCartItems() {
+            await this.getCart();
+
+            this.$dispatch('currentcartitems', this.cart.items);
+        },
+
+        /**
+         * @deprecated
+         */
+        set open(open) { // deprecated use  LiquifyHelper instead
+            //console.warn('Deprecated "set open" in mini_cart')
+        },
+        /**
+         * @deprecated
+         */
+        get open() { // deprecated use  LiquifyHelper instead
+            //console.warn('Deprecated "get open" in mini_cart')
+            return false;
+        },
+        /**
+         * @deprecated
+         */
+        set note(note) { // deprecated
+            //console.warn('Deprecated "set note" in mini_cart')
+            this.cart.note = note;
+        },
+        /**
+         * @deprecated
+         */
+        get note() { // deprecated
+            //console.warn('Deprecated "get note" in mini_cart')
+            return this.cart.note;
+        },
+        /**
+         * @deprecated
+         */
+        set attributes(attributes) { // deprecated
+            //console.warn('Deprecated "set attributes" in mini_cart')
+            this.cart.attributes = attributes;
+        },
+        /**
+         * @deprecated
+         */
+        get attributes() { // deprecated
+            //console.warn('Deprecated "get attributes" in mini_cart')
+            return this.cart.attributes;
+        },
+        /**
+         * @deprecated
+         */
+        set original_total_price(original_total_price) { //deprecated
+            //console.warn('Deprecated "set original_total_price" in mini_cart')
+            this.cart.original_total_price = original_total_price;
+        },
+        /**
+         * @deprecated
+         */
+        get original_total_price() { //deprecated
+            //console.warn('Deprecated "get original_total_price" in mini_cart')
+            return this.cart.original_total_price;
+        },
+        /**
+         * @deprecated
+         */
+        set total_price(total_price) { //deprecated
+            //console.warn('Deprecated "set total_price" in mini_cart')
+            this.cart.total_price = total_price;
+        },
+        /**
+         * @deprecated
+         */
+        get total_price() { //deprecated
+            //console.warn('Deprecated "get total_price" in mini_cart')
+            return this.cart.total_price;
+        },
+        /**
+         * @deprecated
+         */
+        set total_discount(total_discount) { //deprecated
+            //console.warn('Deprecated "set total_discount" in mini_cart')
+            this.cart.total_discount = total_discount;
+        },
+        /**
+         * @deprecated
+         */
+        get total_discount() { //deprecated
+            //console.warn('Deprecated "get total_discount" in mini_cart')
+            return this.cart.total_discount;
+        },
+        /**
+         * @deprecated
+         */
+        set total_weight(total_weight) { //deprecated
+            //console.warn('Deprecated "set total_weight" in mini_cart')
+            this.cart.total_discount = total_weight;
+        },
+        /**
+         * @deprecated
+         */
+        get total_weight() { //deprecated
+            //console.warn('Deprecated "get total_weight" in mini_cart')
+            return this.cart.total_weight;
+        },
+        /**
+         * @deprecated
+         */
+        set item_count(item_count) { //deprecated
+            //console.warn('Deprecated "set item_count" in mini_cart')
+            this.cart.total_discount = item_count;
+        },
+        /**
+         * @deprecated
+         */
+        get item_count() { //deprecated
+            //console.warn('Deprecated "get item_count" in mini_cart')
+            return this.cart.item_count;
+        },
+        /**
+         * @deprecated
+         */
+        set items_subtotal_price(items_subtotal_price) { //deprecated
+            //console.warn('Deprecated "set items_subtotal_price" in mini_cart')
+            this.cart.items_subtotal_price = items_subtotal_price;
+        },
+        /**
+         * @deprecated
+         */
+        get items_subtotal_price() { //deprecated
+            //console.warn('Deprecated "get items_subtotal_price" in mini_cart')
+            return this.cart.items_subtotal_price;
+        },
+        /**
+         * @deprecated
+         */
+        set products(products) {
+            //console.warn('Deprecated "set products" in mini_cart')
+            this.cart.items = products;
+        },
+        /**
+         * @deprecated
+         */
+        get products() {
+            //console.warn('Deprecated "get products" in mini_cart')
+            return this.cart.items;
+        },
+        /**
+         * @deprecated
+         */
+        set requires_shipping(requires_shipping) {
+            //console.warn('Deprecated "set requires_shipping" in mini_cart')
+        },
+        /**
+         * @deprecated
+         */
+        get requires_shipping() {
+            //console.warn('Deprecated "get requires_shipping" in mini_cart')
+            return false;
+        },
+        /**
+         * @deprecated
+         */
+        set currency(currency) { //deprecated
+            //console.warn('Deprecated "set currency" in mini_cart')
+            this.cart.currency = currency;
+        },
+        /**
+         * @deprecated
+         */
+        get currency() { //deprecated
+            //console.warn('Deprecated "get currency" in mini_cart')
+            return this.cart.currency;
+        },
+        /**
+         * @deprecated
+         */
+        set cart_level_discount_applications(cart_level_discount_applications) { //deprecated
+            //console.warn('Deprecated "set cart_level_discount_applications" in mini_cart')
+            this.cart.cart_level_discount_applications = cart_level_discount_applications;
+        },
+        /**
+         * @deprecated
+         */
+        get cart_level_discount_applications() { //deprecated
+            //console.warn('Deprecated "get cart_level_discount_applications" in mini_cart')
+            return this.cart.cart_level_discount_applications;
+        },
+        /**
+         * @deprecated
+         */
+        set cartApiResponse(cartApiResponse) { //deprecated
+            //console.warn('Deprecated "set cartApiResponse" in mini_cart')
+            this.cart.cartApiResponse = cartApiResponse;
+        },
+        /**
+         * @deprecated
+         */
+        get cartApiResponse() { //deprecated
+            //console.warn('Deprecated "get cartApiResponse" in mini_cart')
+            return this.cart.response;
+        },
+        /**
+         * @deprecated
+         */
+        set total(total) { //deprecated
+            //console.warn('Deprecated "set total" in mini_cart')
+            this.cart.item_count = total.items;
+            this.cart.total_price = total.price;
+            this.cart.total_weight = total.weight;
+            this.cart.total_discount = total.discount;
+        },
+        /**
+         * @deprecated
+         */
+        get total() { //deprecated
+            //console.warn('Deprecated "get total" in mini_cart')
+            return {
+                items: this.cart.item_count,
+                price: this.cart.total_price,
+                weight: this.cart.total_weight,
+                discount: this.cart.total_discount,
+            };
+        }
+    }))
+
+
+});
+
+</script>
+<div data-hover="false" data-delay="0" li-element="mini-cart" class="nav_dropdown w-dropdown" x-data="handleMinicart()" x-init="getCart()" @cartupdated.window="getCart()" @setcartitem.window="updateCartItemQuantity($event.detail.product, $event.detail.quantity)" @increasecartitem.window="increaseCartItemQuantity($event.detail.product, $event.detail.quantity)" @decreasecartitem.window="decreaseCartItemQuantity($event.detail.product, $event.detail.quantity)" @toggleminicart.window="toggleMiniCart()" @showcartmessage.window="showCartMessage" @getcartitems.window="returnCartItems">
+                  <div li-element="mini-cart-toggle" class="nav_shop-icon w-dropdown-toggle" @click="$dispatch('cartupdated.window')"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 21 18" fill="none" class="nav_basket">
+                      <path d="M16.5947 17.3032H3.63969L0 6.05322H20.2341L16.5947 17.3032ZM4.09469 16.6782H16.14L19.3753 6.67822H0.859375L4.09469 16.6782Z" fill="currentColor"></path>
+                      <path d="M6.7018 0L7.28242 0.232188L4.7818 6.48156L4.20117 6.24938L6.7018 0ZM13.5324 0L16.0324 6.25L15.4518 6.4825L12.9518 0.232188L13.5324 0ZM7.30461 11.6781H12.9296V12.3031H7.30461V11.6781Z" fill="currentColor"></path>
+                    </svg>
+                    <div li-element="mini-cart-item-count" class="nav_shop-quantity" x-data="{ items: 0 }" x-text="items" @carttotalitems.window="items = event.detail">1</div>
+                  </div>
+                  <nav li-element="mini-cart-container" class="nav_mini-cart-holder w-dropdown-list" :class="open || 'mini-cart-closed'">
+                    <div li-element="dropdown-toggle" class="nav_mini-cart-close" data-dropdowntoggle="" @click="LiquifyHelper.triggerClick($event.target.closest('.w-dropdown').querySelector('.w-dropdown-toggle.w--open'))"></div>
+                    <div class="mini-cart_component">
+                      <div li-element="mini-cart-full" class="mini-cart_full" :style="total.items < 1 && { display: 'none' }">
+                        <div class="mini-cart_header">
+                          <div class="mini-cart_heading_wrapper">
+                            <div class="mini-cart_heading">Basket</div>
+                            <div li-element="mini-cart-item-count" class="mini-cart_quantity" x-data="{ items: 0 }" x-text="items" @carttotalitems.window="items = event.detail">1</div>
+                          </div><button li-element="dropdown-toggle" aria-label="Close Cart" class="nav_dropdown-close-button" data-dropdowntoggle="" @click="LiquifyHelper.triggerClick($event.target.closest('.w-dropdown').querySelector('.w-dropdown-toggle.w--open'))">
+                            <div class="nav_dropdown-close-icon w-embed"><svg width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.84775 14.178L0.447754 12.778L6.04775 7.17798L0.447754 1.57798L1.84775 0.177979L7.44775 5.77798L13.0478 0.177979L14.4478 1.57798L8.84775 7.17798L14.4478 12.778L13.0478 14.178L7.44775 8.57798L1.84775 14.178Z" fill="currentColor"></path>
+                              </svg></div>
+                          </button>
+                        </div>
+                        <div class="mini-cart_line-item no-scrollbar">
+                          <ul role="list" class="mini-cart_line-item_list w-list-unstyled">
+                            <template x-for="product in products" :key="product.key">
+    <li li-element="mini-cart-item" class="mini-cart_line-item_item">
+                              <a li-js-object:href="product.url" href="#" class="mini-cart_line-item_link-wrapper w-inline-block" x-bind:href="product.url"><img class="mini-cart_line-item_img" src="images/BALMAUD-GIN-POS-V4-POST-copy.webp" alt="" sizes="100vw" loading="lazy" srcset="{{ 'BALMAUD-GIN-POS-V4-POST-copy-p-500.webp' | asset_url }} 500w, {{ 'BALMAUD-GIN-POS-V4-POST-copy-p-800.webp' | asset_url }} 800w, {{ 'BALMAUD-GIN-POS-V4-POST-copy.webp' | asset_url }} 984w" x-bind:src="product.image"></a>
+                              <div class="mini-cart_line-item_product-info">
+                                <div class="mini-cart_line-item_title_wrapper">
+                                  <div li-js-object="product.title" class="text-size-regular" x-text="product.title">Highland Dry Gin</div>
+                                  <div li-js-object="product.variant" x-text="product.variant">- 70cl Bottle</div>
+                                </div>
+                                <div id="w-node-_65d74550-f98c-160e-50c6-38dce390f575-e390f55f" class="mini-cart_line-item_price">
+                                  <div li-js-price="product.price" class="text-size-small" x-text="LiquifyHelper.moneyFormat(product.price, true, '{{ shop.money_with_currency_format }}')">14,99 $</div>
+                                  <template x-if="product.price < product.original_price">
+            <div li-js-if="product.price < product.original_price">
+        
+                                    <div li-js-price="product.original_price" class="text-size-small text-style-strikethrough text-style-muted" x-text="LiquifyHelper.moneyFormat(product.original_price, true, '{{ shop.money_with_currency_format }}')">14,99 $</div>
+                                          </div>
+    </template>
+                                </div>
+                                <div id="w-node-_65d74550-f98c-160e-50c6-38dce390f57b-e390f55f" class="mini-cart_line-item_quantity">
+                                  <a li-element="mini-cart-item-decrease" href="#" class="mini-cart_line-item_quantity-adjust" :productprop="product" @click="$dispatch('decreasecartitem', { product: product.key, quantity: product.quantity, action: 'decrease' })">-</a><input li-element="mini-cart-item-quantity" class="mini-cart_line-item_quantity-adjust" value="1" :productprop="product" @input="$dispatch('setcartitem', { product: product.key, quantity: product.quantity })" x-model="product.quantity">
+                                  <a li-element="mini-cart-item-increase" href="#" class="mini-cart_line-item_quantity-adjust" :productprop="product" @click="$dispatch('increasecartitem', { product: product.key, quantity: product.quantity, action: 'increase' })">+</a>
+                                </div>
+                                <div li-element="mini-cart-item-remove" id="w-node-_65d74550-f98c-160e-50c6-38dce390f581-e390f55f" class="text-size-tiny text-color-grey" :productprop="product" @click="$dispatch('setcartitem', { product: product.key, quantity: 0 })">Remove</div>
+                              </div>
+                            </li></template>
+                          </ul>
+                          <div class="mini-cart_shipping-info_wrapper">
+                            <p>Free shipping on orders over £100</p>
+                          </div>
+                        </div>
+                        <div class="mini-cart_footer">
+                          <div class="mini-cart_footer-total">
+                            <div>Subtotal</div>
+                            <div class="mini-cart_footer-price">
+                              <div li-js-price="total.price" x-text="LiquifyHelper.moneyFormat(total.price, true, '{{ shop.money_with_currency_format }}')">14,99 $</div>
+                              <template x-if="total.price < original_total_price">
+            <div li-js-if="total.price < original_total_price" class="mini-cart_conditional">
+        
+                                <div li-js-price="original_total_price" class="text-style-strikethrough text-style-muted" x-text="LiquifyHelper.moneyFormat(original_total_price, true, '{{ shop.money_with_currency_format }}')">14,99 $</div>
+                                      </div>
+    </template>
+                            </div>
+                          </div>
+                          <div li-element="mini-cart-api-response" class="mini-cart_footer-message hide">
+                            <div class="mini-cart_footer-message-item">
+                              <div class="text-size-regular-3 text-weight-bold-2">Message</div>
+                              <div li-js-object="cartApiResponse?.result?.message" class="text-size-regular-3 text-weight-bold-2" x-text="cartApiResponse?.result?.message">14,99 $</div>
+                            </div>
+                          </div>
+                          <a x-bind:href="'/checkout'" href="#" class="button is-dark w-button">Checkout</a>
+                          <a li-object:href="routes.cart_url" href="{{ routes.cart_url }}" class="button is-dark hide w-button">Cart</a>
+                        </div>
+                      </div>
+                      <div li-cloak="hide" li-element="mini-cart-empty" class="mini-cart_empty" :style="total.items && { display: 'none' }">
+                        <div class="mini-cart_header">
+                          <div class="mini-cart_heading">Basket</div><button li-element="dropdown-toggle" aria-label="Close Cart" class="nav_dropdown-close-button" data-dropdowntoggle="" @click="LiquifyHelper.triggerClick($event.target.closest('.w-dropdown').querySelector('.w-dropdown-toggle.w--open'))">
+                            <div class="nav_dropdown-close-icon w-embed"><svg width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.84775 14.178L0.447754 12.778L6.04775 7.17798L0.447754 1.57798L1.84775 0.177979L7.44775 5.77798L13.0478 0.177979L14.4478 1.57798L8.84775 7.17798L14.4478 12.778L13.0478 14.178L7.44775 8.57798L1.84775 14.178Z" fill="currentColor"></path>
+                              </svg></div>
+                          </button>
+                        </div>
+                        <div class="mini-cart_empty-content">
+                          <div class="text-size-regular">You have no items in your basket</div>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+              <div class="nav_button w-nav-button">
+                <div data-is-ix2-target="1" class="nav_button_icon w-variant-5bc79521-0627-45d0-3288-096227e51632" data-w-id="e34d1f0f-346c-3e32-a53c-9999f13df676" data-animation-type="lottie" data-src="{{ 'BMD_HAMBURGER.json' | asset_url }}" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="0" data-duration="1.04" data-ix2-initial-state="0"></div>
+              </div>
+              <div class="w-embed">
+                <style>
+.burger-line path
+{
+fill: inherit;
+}
+</style>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="age-gate_component">
+          <div class="w-embed">
+            <style>
+.age-input::placeholder {
+  color: #000;
+}
+/* Chrome, Safari, Edge, Opera */
+.age-input::-webkit-outer-spin-button,
+.age-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+.age-input[type="number"] {
+  -moz-appearance: textfield;
+}
+.age-gate {       
+flex-direction: column;    
+align-items: center;    
+justify-content: center;    
+height: 100vh;    
+text-align: center;  
+} 
+.age-form {    
+margin-top: 20px;
+}  
+.age-input {    
+padding: 10px;    
+font-size: 16px;    
+width: 200px;  
+}  
+.age-submit {    
+padding: 10px 20px;    
+font-size: 16px;    
+margin-top: 10px;    
+cursor: pointer;  
+}  
+.age-error {    
+display: none;   
+color: red;    
+margin-top: 10px;  
+}  
+.main-content {    
+display: none;    
+padding: 40px;  
+}
+</style>
+          </div>
+          <div id="ageGate" class="age-gate">
+            <div class="age-gate_wrapper">
+              <h2 class="age-gate_heading">Enter Your Date of Birth</h2>
+              <form id="ageForm" class="age-form">
+                <div class="age-gate_checkbox-wrapper"><input type="checkbox" class="age-gate_checkbox">
+                  <div>I am of legal drinking age in my location*</div>
+                </div><button id="submitYearButton" type="submit" class="age-submit button is-dark">Enter</button>
+                <p id="errorMsg" class="age-error">Are you of legal drinking age in your country?</p>
+              </form><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 174 29" fill="none" class="age-gate_logo">
+                <path d="M162.352 0.474609C162.352 0.474609 174 0.474609 174 12.8359C174 28.0498 160.727 28.0894 160.727 28.0894H151.892C153.319 26.4254 153.358 23.969 153.358 23.6124V4.95161C153.358 4.59504 153.319 2.13863 151.892 0.474609H162.352ZM159.777 25.4349C161.322 25.4349 168.533 24.8406 168.533 13.7471C168.533 3.16873 160.49 3.16873 160.49 3.16873H158.667V25.4349H159.777Z" fill="currentColor"></path>
+                <path d="M142.528 0.474609H149.184C147.837 2.77254 147.837 4.99123 147.837 4.99123C147.837 4.99123 147.837 16.0054 147.837 18.858C147.837 21.7503 146.292 28.5648 137.536 28.5648C129.295 28.5648 127.512 23.4935 127.393 18.1449V4.95161C127.354 4.63465 127.354 2.13863 125.927 0.474609H134.445C133.019 2.77254 133.019 4.99123 133.019 4.99123C133.059 9.58709 133.138 13.9452 133.138 18.7788C133.138 23.652 137.021 25.5934 140.19 25.5934C143.479 25.5934 143.875 21.4333 143.875 18.9769C143.875 16.5205 143.875 4.87237 143.875 4.87237C143.875 4.3177 143.598 1.98015 142.528 0.474609Z" fill="currentColor"></path>
+                <path d="M126.754 28.0902H117.483C118.434 27.0205 118.751 25.9111 118.473 24.6829C117.8 22.1869 116.77 20.0078 116.77 20.0078H108.172L107.499 22.5435C107.063 23.9698 106.746 25.0395 106.746 25.9508C106.746 26.7035 106.984 27.3771 107.499 28.0902H100.526C102.111 26.4262 103.061 25.1187 104.012 22.5435L109.916 5.22977C110.51 3.64499 110.748 2.6545 110.748 1.74326C110.748 1.14896 110.668 0.633911 110.47 0L114.868 0L121.92 19.3343C123.188 22.385 124.416 26.3073 126.754 28.0902ZM109.084 17.3533L115.819 17.393L112.372 8.39933L109.084 17.3533Z" fill="currentColor"></path>
+                <path d="M97.2978 5.02736V23.5693C97.2978 23.5693 97.2978 25.788 98.7638 28.0859H90.9587C91.9492 26.6596 92.4642 25.1541 92.4642 23.5693V9.34589L85.1743 28.284C82.916 28.4029 81.3312 27.135 80.4992 25.3918L74.2393 10.0987V22.5392C74.2393 24.9956 74.6355 26.3426 75.7844 28.0859H69.5246C70.6735 26.2634 70.832 25.1937 70.9509 22.5392V6.05747C70.9509 3.4822 70.5547 2.21438 69.5246 0.510742H74.9524L85.095 21.1921L92.4642 0.510742H98.7638C97.2978 2.80867 97.2978 5.02736 97.2978 5.02736Z" fill="currentColor"></path>
+                <path d="M49.2888 28.0894C50.7151 26.4254 50.7547 23.969 50.7547 23.6124V4.95161C50.7547 4.59504 50.7151 2.13863 49.2888 0.474609H57.0939C55.6279 2.77254 55.6279 4.99123 55.6279 4.99123V25.4349H61.5709C62.1651 25.3953 62.7198 25.1972 63.1953 24.8406L65.612 22.9389L67.6326 28.0894H49.2888Z" fill="currentColor"></path>
+                <path d="M47.6363 28.0902H38.3653C39.3162 27.0205 39.6332 25.9111 39.3558 24.6829C38.6823 22.1869 37.6522 20.0078 37.6522 20.0078H29.0548L28.3812 22.5435C27.9454 23.9698 27.6285 25.0395 27.6285 25.9508C27.6285 26.7035 27.8662 27.3771 28.3812 28.0902H21.4082C22.993 26.4262 23.9438 25.1187 24.8947 22.5435L30.798 5.22977C31.3923 3.64499 31.63 2.6545 31.63 1.74326C31.63 1.14896 31.5508 0.633911 31.3527 0L35.7505 0L42.8027 19.3343C44.0705 22.385 45.2987 26.3073 47.6363 28.0902ZM29.966 17.3533L36.7013 17.393L33.2544 8.39933L29.966 17.3533Z" fill="currentColor"></path>
+                <path d="M15.0554 13.3906C15.0554 13.3906 20.8398 14.6188 20.8398 20.4428C20.8398 27.0989 13.3121 28.0894 8.16161 28.0894H0C1.4263 26.4254 1.46592 23.969 1.46592 23.6124V4.95161C1.46592 4.59504 1.4263 2.13863 0 0.474609H11.4104C11.4104 0.474609 18.7796 0.514231 18.7796 6.53639C18.7796 11.2907 16.3232 12.5982 15.0554 13.3906ZM6.77493 3.12912V12.9151C6.77493 12.9151 13.7876 13.8264 13.7876 6.81373C13.7876 2.6933 7.3296 3.12912 6.77493 3.12912ZM15.4516 20.6013C15.412 14.5791 10.6576 14.5395 6.77493 14.5395V25.1575C6.77493 25.1575 6.77493 25.1575 6.81455 25.1575C7.36922 25.1575 8.24085 25.2368 9.19172 25.2368C11.9255 25.2368 15.4516 24.6821 15.4516 20.6013Z" fill="currentColor"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        {% if section.settings.checkbox_solid_nav == true %}
+<div class="nav-mode-checkbox"></div>{% endif %}
+      </div>
+    </div>
+    {{ content_for_layout }}
+    {% section 'footer' %}
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=675c6140230093d4946dd46e" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="{{ 'webflow.js' | asset_url }}" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://unpkg.com/reeller@0/dist/reeller.min.js"></script>
+  <script>
+window.addEventListener('DOMContentLoaded', function () {
+	gsap.to('.nav_ticker_wrapper',{
+  	opacity: 1,
+    delay: 1,
+    duration: 1,
+  })
+  var reeller = new Reeller.Reeller({
+        container: '.nav_ticker_container',
+        wrapper: '.nav_ticker_wrapper',
+        itemSelector: '.nav_ticker_text',
+        speed: 20,
+        reversed: true,
+    });
+});
+</script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const submitBtn = document.getElementById("submitYearButton");
+  const consentCheckbox = document.querySelector(".age-gate_checkbox");
+  const mainContent = document.querySelector(".main-wrapper");
+  const footerSection = document.querySelector(".footer_section");
+  const ageGate = document.getElementById("ageGate");
+  const ageGateComponent = document.querySelector(".age-gate_component");
+  const errorMsg = document.getElementById("errorMsg");
+  function showGate() {
+    ageGate.style.display = "flex";
+    ageGateComponent.style.display = "flex";
+    mainContent.style.display = "none";
+    footerSection.style.display = "none";
+  }
+  function showContent() {
+    ageGate.style.display = "none";
+    ageGateComponent.style.display = "none";
+    mainContent.style.display = "block";
+    footerSection.style.display = "block";
+  }
+  if (localStorage.getItem("ageVerified") === "true") {
+    showContent();
+  } else {
+    showGate();
+  }
+  const handleVerify = function (e) {
+    e.preventDefault();
+    errorMsg.style.display = "none";
+    if (!consentCheckbox.checked) {
+      errorMsg.style.display = "block";
+      return;
+    }
+    localStorage.setItem("ageVerified", "true");
+    showContent();
+  };
+  const form = consentCheckbox.closest("form") || submitBtn.closest("form");
+  form.addEventListener("submit", handleVerify);
+  submitBtn.addEventListener("click", handleVerify);
+});
+</script>
+  <script src="https://balmaud.netlify.app/main.js"></script>
+  <!-- 
+<script type = "module" src = "http://localhost:5173/src/main.js"></script>
+ -->
+</body>
+</html>

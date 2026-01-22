@@ -1,0 +1,104 @@
+<div balmaud-animation="nav-colour-swap" class="product-hero_wrapper">
+          <script src="{{ 'li_custom.js' | asset_url }}" type="text/javascript"></script>
+<div li-element="product-variant-container" class="product-hero_layout" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)">
+            <div fade-in-sooner="" balmaud-animation="fade-in" id="w-node-ccbcedbc-a4cd-a65e-b265-d3a1b3d77f9b-b3d77f98" class="product-hero_info_layout">
+              <h1 li-object:text="product.title" class="product-hero_info_heading heading-style-h6 text-style-allcaps">
+{{ product.title }}
+</h1>
+              <div li-object="product.description" class="no-trim w-richtext">{{ product.description }}</div>
+              <div class="product-header_form-block w-form">
+                {% form 'product', product, class: 'product-header_default-state' %}
+{% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_option-list">
+    
+                    <template x-for="(option, optionKey) in product.options" :key="optionKey">
+    <div li-element="product-options-loop" class="product-header_option" data-ProductVariantsLoop="true">
+                      <div class="product-header_radio-list"><template x-for="(variantName, variantKey) in options_by_name[option].option.values" :key="variantName">
+    <label li-element="product-option-loop" class="product-header_radio w-radio">
+                          <div class="w-form-formradioinput w-form-formradioinput--inputType-custom product-header_radio-button w-radio-input"></div><input type="radio" li-element="product-option-input" style="opacity:0;position:absolute;z-index:-1" x-on:click="setVariant" :name="option" :data-name="option" :value="variantName" :id="variantName.toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w-]+/g, '').replace(/--+/g, '-')" :checked="selected_or_first_available_variant?.options.includes(variantName)" data-selectorType="radio" :class="firstOptionHasAvailableChildren[variantName] ? '' : 'data-disabled'">
+                          <div li-js-object="'£' + variants.find(variant => variant.options.includes(variantName))?.price / 100" class="product-header_radio_label" x-text="'£' + variants.find(variant => variant.options.includes(variantName))?.price / 100">£10</div>
+                          <div class="product-header_radio_label is-dash">-</div><span li-element="product-option-name" class="product-header_radio_label w-form-label" for="radio" x-text="variantName" :for="variantName">70cl bottle</span>
+                        </label></template></div>
+                    </div></template>
+                      </div>
+{% endif %}
+                  <div class="product-header_add-to-cart-wrapper">
+                    <template x-if="selected_or_first_available_variant.available">
+            <div li-js-if="selected_or_first_available_variant.available" class="product-header_buy-wrappper">
+        <input class="product-header_quantity-field w-input" maxlength="256" name="quantity" li-element="add-to-cart-quantity" data-name="Quantity" placeholder="1" type="number" id="quantity" required="" x-model="quantity">
+                      <a li-element="add-to-cart" href="#" class="button is-dark-outline w-button" @click="addToCart($event, true)" :disabled="!addToCartButton">Add to Basket</a>
+                      <script src="{{ 'li_custom.js' | asset_url }}" type="text/javascript"></script>
+<a li-element="checkout-add-to-cart" href="#" class="button is-dark w-button" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" @click="addToCartAndCheckout($event, true)">Buy Now</a>
+                            </div>
+    </template>
+                    <template x-if="!selected_or_first_available_variant.available">
+            <div li-js-if="!selected_or_first_available_variant.available" class="product-header_out-of-stock">
+        
+                      <a href="#" class="product-header_out-of-stock_text w-button">Not in Stock</a>
+                            </div>
+    </template>
+                  </div>
+                {% endform %}
+                <div class="hide w-form-done">
+                  <div>Thank you! Your submission has been received!</div>
+                </div>
+                <div class="hide w-form-fail">
+                  <div>Oops! Something went wrong while submitting the form.</div>
+                </div>
+              </div>
+              <div class="product-hero_info_dropdowns_layout">
+                <div class="product-hero_dropdown">
+                  <div class="product-hero_dropdown_toggle">
+                    <div>Tasting Notes</div>
+                    <div class="product-hero_dropdown-toggle_icon">+</div>
+                  </div>
+                  <div class="product-hero_dropdown_navigation">
+                    <div li-object="product.metafields.custom.tasting_notes | metafield_tag" class="product-hero_dropdown_paragraph no-trim w-richtext">{{ product.metafields.custom.tasting_notes | metafield_tag }}</div>
+                  </div>
+                </div>
+                <div class="product-hero_dropdown">
+                  <div class="product-hero_dropdown_toggle">
+                    <div>Delivery Information</div>
+                    <div class="product-hero_dropdown-toggle_icon">+</div>
+                  </div>
+                  <div class="product-hero_dropdown_navigation">
+                    <div li-object="product.metafields.custom.delivery_information | metafield_tag" class="product-hero_dropdown_paragraph no-trim w-richtext">{{ product.metafields.custom.delivery_information | metafield_tag }}</div>
+                  </div>
+                </div>
+                <div class="product-hero_dropdown">
+                  <div class="product-hero_dropdown_toggle">
+                    <div>How to Serve</div>
+                    <div class="product-hero_dropdown-toggle_icon">+</div>
+                  </div>
+                  <div class="product-hero_dropdown_navigation">
+                    <div li-object="product.metafields.custom.how_to_serve | metafield_tag" class="product-hero_dropdown_paragraph no-trim w-richtext">{{ product.metafields.custom.how_to_serve | metafield_tag }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="w-node-_566247fd-a0e3-4c63-7770-32a52392631b-b3d77f98" class="product-hero_slider_wrapper">
+              <div class="product-hero_slider">
+                <div class="product-hero_slider_slide"><img data-delay="0.33" class="product-hero_slider_image" src="{{ product.featured_image.src | image_url: width: 1500 }}" balmaud-animation="fade-in" alt="{{ product.featured_image.alt }}" sizes="(max-width: 991px) 100vw, 983.9931030273438px" li-object:src="product.featured_image.src | image_url: width: 1500" loading="lazy" li-object:alt="product.featured_image.alt" srcset="{{ 'BALMAUD-GIN-POS-V4-POST-copy-p-500.webp' | asset_url }} 500w, {{ 'BALMAUD-GIN-POS-V4-POST-copy-p-800.webp' | asset_url }} 800w, {{ 'BALMAUD-GIN-POS-V4-POST-copy.webp' | asset_url }} 984w"></div>
+              </div>
+            </div>
+            <div balmaud-animation="fade-in" id="w-node-_9f452a19-4186-02fb-a964-0afd390a7922-b3d77f98" class="product-hero_background-image_wrapper"><img src="{{ 'Frame-8.webp' | asset_url }}" loading="lazy" sizes="100vw" srcset="{{ 'Frame-8-p-500.webp' | asset_url }} 500w, {{ 'Frame-8-p-800.webp' | asset_url }} 800w, {{ 'Frame-8-p-1080.webp' | asset_url }} 1080w, {{ 'Frame-8-p-1600.webp' | asset_url }} 1600w, {{ 'Frame-8.webp' | asset_url }} 1756w" alt="" class="product-hero_background-image hide-tablet"><img src="{{ 'Frame-7.webp' | asset_url }}" loading="lazy" sizes="100vw" srcset="{{ 'Frame-7-p-500.webp' | asset_url }} 500w, {{ 'Frame-7-p-800.webp' | asset_url }} 800w, {{ 'Frame-7-p-1080.webp' | asset_url }} 1080w, {{ 'Frame-7-p-1600.webp' | asset_url }} 1600w, {{ 'Frame-7.webp' | asset_url }} 1756w" alt="" class="product-hero_background-image show-tablet">
+              <div class="product-hero_background-image_text-wrapper">
+                <div class="product-hero_background-image_top-text_flex">
+                  <div class="product-hero_background-image_text">Nothing<br>Wasted</div>
+                  <div class="product-hero_background-image_text">Nothing<br>Rushed</div>
+                </div>
+                <div class="product-hero_background-image_heading">Nothing<br>Ordinary</div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Product-Hero",
+    "class": "product-hero_section",
+    "presets": [
+        {
+            "name": "Product-Hero",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

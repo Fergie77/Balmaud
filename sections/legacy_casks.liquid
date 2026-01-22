@@ -1,0 +1,74 @@
+<div class="legacy-casks_wrapper">
+          <div class="legacy-casks_layout">
+            <div id="w-node-_2b5d3674-b16c-181c-5b5a-bc8fb015018a-b972f49a" class="legacy-casks_detail-text_wrapper">
+              <p class="legacy-casks_detail-text_item">MODERN<br>SPIRITS</p>
+              <p class="legacy-casks_detail-text_item">Bottled<br>in Turriff</p>
+              <p class="legacy-casks_detail-text_item">Product<br>of Scotland</p>
+              <p class="legacy-casks_detail-text_item">Proudly<br>by Balmaud</p>
+            </div>
+            <div id="w-node-_180143e4-68e7-1142-bd61-593d115015c7-b972f49a" class="legacy-casks_info">
+              <h2 class="legacy-casks_heading text-size-large text-style-allcaps">
+{{ section.settings.text_heading }}
+</h2>
+              <p>
+{{ section.settings.text_paragraph }}
+</p>
+              <div data-wf--button-2--variant="expanded-link" class="button w-variant-ef1e1ef6-6c42-592a-75e0-6747891b3360">
+                <p>
+{{ section.settings.text_button_text }}
+</p>
+                <a href="{{ section.settings.url_link }}" class="button_link w-inline-block"> </a>
+                {% if article.url %}    <div li-if="article.url" class="absolute-wrapper w-variant-ef1e1ef6-6c42-592a-75e0-6747891b3360">
+    
+                  <a li-object:href="article.url" href="{{ article.url }}" class="button_link w-inline-block"></a>
+                    </div>
+{% endif %}
+              </div>
+            </div>
+          </div>{% if section.settings.image_image %}
+{{ section.settings.image_image | image_url: width: 2000 | image_tag: loading: 'lazy', balmaud-animation: 'content-fade-in', class: 'hero_background-content is-dark' }}
+{% else %}
+<img src="{{ 'April_balmaud_shoot-6-1.webp' | asset_url }}" loading="lazy" balmaud-animation="content-fade-in" alt="" class="hero_background-content is-dark">
+{% endif %}
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Legacy Casks",
+    "class": "legacy-casks_section",
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Own your Legacy"
+        },
+        {
+            "id": "text_paragraph",
+            "type": "text",
+            "label": "Paragraph",
+            "default": "At our 100% family-owned artisan distillery, we make vodka in small batches from organic grapes, infused with whole organic ingredients."
+        },
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button Text",
+            "default": "Shop Now"
+        },
+        {
+            "id": "url_link",
+            "type": "url",
+            "label": "Link"
+        },
+        {
+            "id": "image_image",
+            "type": "image_picker",
+            "label": "Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Legacy Casks",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

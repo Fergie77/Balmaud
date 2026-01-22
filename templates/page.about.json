@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "video_hero": {
+            "type": "video_hero"
+        },
+        "timeline": {
+            "type": "timeline"
+        }
+    },
+    "layout": "page.about",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "video_hero",
+        "timeline"
+    ]
+}

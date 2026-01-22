@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "holding_hero": {
+            "type": "holding_hero"
+        }
+    },
+    "layout": "404",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "holding_hero"
+    ]
+}

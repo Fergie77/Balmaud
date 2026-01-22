@@ -1,0 +1,95 @@
+<div class="blog_wrapper">
+          <div class="padding-global">
+            <div class="blog_layout">
+              {% for block in section.blocks %}
+    {% if block.type == "about-block" %}
+                    <div li-block="About Block" class="blog_item">
+                                    {% if block.settings.image_image %}
+{{ block.settings.image_image | image_url: width: 1500 | image_tag: loading: 'lazy', class: 'blog_item_image' }}
+{% else %}
+<img src="" alt="" loading="lazy" class="blog_item_image">
+{% endif %}
+                                    
+                
+                                    <h2 class="blog_item_heading text-size-large text-style-allcaps">
+{{ block.settings.text_heading }}
+</h2>
+                                    
+                
+                                    <div class="blog_item_paragraph">
+                  <p class="blog_item_paragraph">
+{{ block.settings.text_paragraph }}
+</p>
+                </div>
+                                    
+                
+                                    <div data-wf--button-2--variant="expanded-link" class="button w-variant-ef1e1ef6-6c42-592a-75e0-6747891b3360">
+                  <p>
+{{ block.settings.text_button_text }}
+</p>
+                  <a href="{{ block.settings.url_link }}" class="button_link w-inline-block"> </a>
+                  {% if article.url %}    <div li-if="article.url" class="absolute-wrapper w-variant-ef1e1ef6-6c42-592a-75e0-6747891b3360">
+    
+                    <a li-object:href="article.url" href="{{ article.url }}" class="button_link w-inline-block"></a>
+                      </div>
+{% endif %}
+                </div>
+                                    
+              
+                            </div>
+            {% endif %}
+{% endfor %}
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "About",
+    "class": "blog_section",
+    "blocks": [
+        {
+            "name": "About Block",
+            "type": "about-block",
+            "settings": [
+                {
+                    "id": "image_image",
+                    "type": "image_picker",
+                    "label": "Image"
+                },
+                {
+                    "id": "text_heading",
+                    "type": "text",
+                    "label": "Heading",
+                    "default": "The Distillery"
+                },
+                {
+                    "id": "text_paragraph",
+                    "type": "text",
+                    "label": "Paragraph",
+                    "default": "At our 100% family-owned artisan distillery, we make vodka in small batches from organic grapes, infused with whole organic ingredients.<br\/>"
+                },
+                {
+                    "id": "text_button_text",
+                    "type": "text",
+                    "label": "Button Text",
+                    "default": "Shop Now"
+                },
+                {
+                    "id": "url_link",
+                    "type": "url",
+                    "label": "Link"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "About",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "about-block"
+                }
+            ]
+        }
+    ]
+} {% endschema %}
