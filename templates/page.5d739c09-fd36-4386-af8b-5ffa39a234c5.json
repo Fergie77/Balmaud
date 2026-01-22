@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "kyle_strachan": {
+            "type": "kyle_strachan"
+        }
+    },
+    "layout": "page.5d739c09-fd36-4386-af8b-5ffa39a234c5",
+    "wrapper": "div.main-wrapper",
+    "order": [
+        "kyle_strachan"
+    ]
+}

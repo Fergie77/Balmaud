@@ -1,0 +1,66 @@
+<div class="diary_wrapper">
+          <div id="w-node-_10017149-f69b-1933-7c7c-84848814b062-8814b060" class="diary_layout">
+            <div class="w-layout-vflex margin-bottom margin-xlarge">
+              <h2 class="diary_heading text-size-large text-style-allcaps">The Diary</h2>
+            </div>
+            <div class="diary_items_layout">
+              <div id="w-node-_10017149-f69b-1933-7c7c-84848814b067-8814b060" class="diary_item"><img src="{{ 'image-31.webp' | asset_url }}" loading="lazy" sizes="239.9913330078125px" srcset="{{ 'image-31-p-500.webp' | asset_url }} 500w, {{ 'image-31-p-800.webp' | asset_url }} 800w, {{ 'image-31.webp' | asset_url }} 1038w" alt="" class="diary_item_image">
+                <h3 class="diary_item_heading">Spring steps on to the farm</h3>
+                <a href="#" class="diary_item_link w-inline-block"></a>
+              </div>
+              <div id="w-node-_10017149-f69b-1933-7c7c-84848814b06c-8814b060" class="diary_item"><img src="{{ 'image-31.webp' | asset_url }}" loading="lazy" sizes="239.9913330078125px" srcset="{{ 'image-31-p-500.webp' | asset_url }} 500w, {{ 'image-31-p-800.webp' | asset_url }} 800w, {{ 'image-31.webp' | asset_url }} 1038w" alt="" class="diary_item_image">
+                <h3 class="diary_item_heading">A very special Cask</h3>
+                <a href="#" class="diary_item_link w-inline-block"></a>
+              </div>
+              <div id="w-node-_10017149-f69b-1933-7c7c-84848814b071-8814b060" class="diary_item"><img src="{{ 'image-31.webp' | asset_url }}" loading="lazy" sizes="239.9913330078125px" srcset="{{ 'image-31-p-500.webp' | asset_url }} 500w, {{ 'image-31-p-800.webp' | asset_url }} 800w, {{ 'image-31.webp' | asset_url }} 1038w" alt="" class="diary_item_image">
+                <h3 class="diary_item_heading">A conversation with Annie Hall</h3>
+                <a href="#" class="diary_item_link w-inline-block"></a>
+              </div>
+              <div id="w-node-_10017149-f69b-1933-7c7c-84848814b076-8814b060" class="diary_item"><img src="{{ 'image-31.webp' | asset_url }}" loading="lazy" sizes="239.9913330078125px" srcset="{{ 'image-31-p-500.webp' | asset_url }} 500w, {{ 'image-31-p-800.webp' | asset_url }} 800w, {{ 'image-31.webp' | asset_url }} 1038w" alt="" class="diary_item_image">
+                <h3 class="diary_item_heading">Now Listed in The Whisky Shop</h3>
+                <a href="#" class="diary_item_link w-inline-block"></a>
+              </div>
+              <div id="w-node-_10017149-f69b-1933-7c7c-84848814b07b-8814b060" class="diary_item"><img src="{{ 'image-31.webp' | asset_url }}" loading="lazy" sizes="239.9913330078125px" srcset="{{ 'image-31-p-500.webp' | asset_url }} 500w, {{ 'image-31-p-800.webp' | asset_url }} 800w, {{ 'image-31.webp' | asset_url }} 1038w" alt="" class="diary_item_image">
+                <h3 class="diary_item_heading">Auchter House Showcase</h3>
+                <a href="#" class="diary_item_link w-inline-block"></a>
+              </div>
+            </div>
+            <div id="w-node-_10017149-f69b-1933-7c7c-84848814b080-8814b060" class="margin-vertical margin-xlarge">
+              <div data-wf--button-2--variant="dark" class="button w-variant-80eba121-a0c2-7ee1-0a00-beff34119e31">
+                <p>
+{{ section.settings.text_button_text }}
+</p>
+                <a href="{{ section.settings.url_link }}" class="button_link w-inline-block"> </a>
+                {% if article.url %}    <div li-if="article.url" class="absolute-wrapper">
+    
+                  <a li-object:href="article.url" href="{{ article.url }}" class="button_link w-inline-block"></a>
+                    </div>
+{% endif %}
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Diary",
+    "class": "diary_section",
+    "settings": [
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button Text",
+            "default": "Shop Now"
+        },
+        {
+            "id": "url_link",
+            "type": "url",
+            "label": "Link"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Diary",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

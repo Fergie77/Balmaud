@@ -1,0 +1,36 @@
+{
+    "sections": {
+        "wilson_strachan": {
+            "type": "wilson_strachan"
+        },
+        "spacer_small": {
+            "type": "spacer_small"
+        },
+        "spacer_medium": {
+            "type": "spacer_medium"
+        },
+        "spacer_large": {
+            "type": "spacer_large"
+        },
+        "spacer_xl": {
+            "type": "spacer_xl"
+        },
+        "spacer_xxl": {
+            "type": "spacer_xxl"
+        },
+        "spacer_huge": {
+            "type": "spacer_huge"
+        }
+    },
+    "layout": "page.0517a2e7-62c6-40e0-84c9-007d564a7e2c",
+    "wrapper": "div.main-wrapper",
+    "order": [
+        "wilson_strachan",
+        "spacer_small",
+        "spacer_medium",
+        "spacer_large",
+        "spacer_xl",
+        "spacer_xxl",
+        "spacer_huge"
+    ]
+}

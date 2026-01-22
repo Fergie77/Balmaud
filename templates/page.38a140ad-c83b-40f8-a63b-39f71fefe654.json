@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "shannon_green": {
+            "type": "shannon_green"
+        }
+    },
+    "layout": "page.38a140ad-c83b-40f8-a63b-39f71fefe654",
+    "wrapper": "div.main-wrapper",
+    "order": [
+        "shannon_green"
+    ]
+}

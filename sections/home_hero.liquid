@@ -1,0 +1,98 @@
+<div balmaud-animation="nav-colour-swap" class="hero_wrapper">
+          <div class="hero_layout">
+            <div id="w-node-_3b12c9a1-675a-1657-7b90-869b9b64ce73-b972f49a" class="hero_info_layout">
+              <h1 balmaud-animation="split-fade-in" data-stagger="0.05" id="w-node-_3b12c9a1-675a-1657-7b90-869b9b64ce76-b972f49a" class="hero_heading heading-style-h1">
+{{ section.settings.text_heading }}
+</h1>
+              <div balmaud-animation="fade-in" id="w-node-_39410b78-9b1c-c55d-1116-ca9ce790afed-b972f49a" class="hero_info_bottom_layout">
+                <p balmaud-animation="fade-in" class="hero_info_paragraph text-color-white">
+{{ section.settings.text_paragraph }}
+</p>
+                <div data-wf--absolute-button--variant="base" class="button is-absolute-button">
+                  <p>
+{{ section.settings.text_button_text }}
+</p>
+                  <a href="{{ section.settings.url_link }}" class="button_link w-inline-block"> </a>
+                  {% if article.url %}    <div li-if="article.url" class="absolute-wrapper">
+    
+                    <a li-object:href="article.url" href="{{ article.url }}" class="button_link w-inline-block"></a>
+                      </div>
+{% endif %}
+                </div>
+              </div>
+            </div>
+            <div id="w-node-_3b12c9a1-675a-1657-7b90-869b9b64ce78-b972f49a" class="hero_detail-text_wrapper">
+              <p class="hero_detail-text">Nothing Ordinery</p>
+              <p class="hero_detail-text">Nothing Rushed</p>
+              <p class="hero_detail-text">Nothing Wasted</p>
+            </div>
+          </div>
+          <div balmaud-animation="content-fade-in" class="hero_background_wrapper">{% if section.settings.image_image %}
+{{ section.settings.image_image | image_url: width: 2000 | image_tag: class: 'hero_background-content hide-tablet', sizes: '100vw', loading: 'lazy' }}
+{% else %}
+<img class="hero_background-content hide-tablet" src="{{ 'BALMAUD_TASTING_WIDE-copy.webp' | asset_url }}" alt="" sizes="100vw" loading="lazy" srcset="{{ 'BALMAUD_TASTING_WIDE-copy-p-500.webp' | asset_url }} 500w, {{ 'BALMAUD_TASTING_WIDE-copy-p-800.webp' | asset_url }} 800w, {{ 'BALMAUD_TASTING_WIDE-copy-p-1080.webp' | asset_url }} 1080w, {{ 'BALMAUD_TASTING_WIDE-copy-p-1600.webp' | asset_url }} 1600w, {{ 'BALMAUD_TASTING_WIDE-copy-p-2000.webp' | asset_url }} 2000w, {{ 'BALMAUD_TASTING_WIDE-copy-p-2600.webp' | asset_url }} 2600w, {{ 'BALMAUD_TASTING_WIDE-copy-p-3200.webp' | asset_url }} 3200w, {{ 'BALMAUD_TASTING_WIDE-copy.webp' | asset_url }} 3840w">
+{% endif %}{% if section.settings.image_mobile_image %}
+{{ section.settings.image_mobile_image | image_url: width: 1000 | image_tag: class: 'hero_background-content show-tablet', sizes: '100vw', loading: 'lazy' }}
+{% else %}
+<img class="hero_background-content show-tablet" src="{{ 'BALMAUD_TASTING_WIDE-copy.webp' | asset_url }}" alt="" sizes="100vw" loading="lazy" srcset="{{ 'BALMAUD_TASTING_WIDE-copy-p-500.webp' | asset_url }} 500w, {{ 'BALMAUD_TASTING_WIDE-copy-p-800.webp' | asset_url }} 800w, {{ 'BALMAUD_TASTING_WIDE-copy-p-1080.webp' | asset_url }} 1080w, {{ 'BALMAUD_TASTING_WIDE-copy-p-1600.webp' | asset_url }} 1600w, {{ 'BALMAUD_TASTING_WIDE-copy-p-2000.webp' | asset_url }} 2000w, {{ 'BALMAUD_TASTING_WIDE-copy-p-2600.webp' | asset_url }} 2600w, {{ 'BALMAUD_TASTING_WIDE-copy-p-3200.webp' | asset_url }} 3200w, {{ 'BALMAUD_TASTING_WIDE-copy.webp' | asset_url }} 3840w">
+{% endif %}
+            
+            <div style="background:{{section.settings.background-color}}" class="hero_background_overlay"></div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Home Hero",
+    "class": "hero_section",
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Nothing Ordinary"
+        },
+        {
+            "id": "text_paragraph",
+            "type": "text",
+            "label": "Paragraph",
+            "default": "We\u2019re proud to announce the release of Balmaud Scottish Dry Gin, the first spirit of Balmaud Distillery"
+        },
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button Text",
+            "default": "Shop Now"
+        },
+        {
+            "id": "url_link",
+            "type": "url",
+            "label": "Link"
+        },
+        {
+            "id": "image_image",
+            "type": "image_picker",
+            "label": "Image"
+        },
+        {
+            "id": "image_mobile_image",
+            "type": "image_picker",
+            "label": "Mobile Image"
+        },
+        {
+            "type": "header",
+            "content": "background-color"
+        },
+        {
+            "type": "color_background",
+            "id": "background-color",
+            "label": "Background Color",
+            "default": "#EDEDE9"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Home Hero",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

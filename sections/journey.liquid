@@ -1,0 +1,81 @@
+<div class="journey_wrapper">
+          <div class="journey_layout">
+            <h2 balmaud-animation="split-fade-in" data-stagger="0.05" id="w-node-_18987a73-6ac4-4128-6823-91251aa1e4b6-777000c8" class="journey_heading">
+{{ section.settings.text_heading }}
+</h2>
+            <div balmaud-animation="fade-in" id="w-node-_05a1ee78-c14e-92f7-e1e6-08d4cc05d0c4-777000c8" class="journey_item">
+              <h3 class="journey_item_heading">Filling</h3>
+              <p id="w-node-_1f0d7874-a66f-6a59-bb8d-d02043db2b0c-777000c8" class="journey_item_paragraph">
+{{ section.settings.text_filling }}
+</p>
+            </div>
+            <div balmaud-animation="fade-in" id="w-node-_9b658efa-685c-7fa2-ef45-cff0ded18021-777000c8" class="journey_item">
+              <h3 class="journey_item_heading">Storage</h3>
+              <p id="w-node-_9b658efa-685c-7fa2-ef45-cff0ded18026-777000c8" class="journey_item_paragraph">
+{{ section.settings.text_storage }}
+</p>
+            </div>
+            <div balmaud-animation="fade-in" id="w-node-d708232a-6c72-a9a4-6c26-9f0d1d9c5641-777000c8" class="journey_item">
+              <h3 class="journey_item_heading">Sampling</h3>
+              <p id="w-node-d708232a-6c72-a9a4-6c26-9f0d1d9c5648-777000c8" class="journey_item_paragraph">
+{{ section.settings.text_sampling }}
+</p>
+            </div>
+            <div balmaud-animation="fade-in" id="w-node-bf900a64-1838-b168-67aa-acacdaae1fa5-777000c8" class="journey_item">
+              <h3 class="journey_item_heading">Security</h3>
+              <p id="w-node-bf900a64-1838-b168-67aa-acacdaae1fa8-777000c8" class="journey_item_paragraph">
+{{ section.settings.text_security }}
+</p>
+            </div>
+            <div id="w-node-cccaf3f2-4e9f-e973-ebe3-91d2a39f93b5-777000c8" class="turned-detail-text_wrapper opacity-0">
+              <div class="turned-detail-text_flex">
+                <p class="turned-detail-text_item">THE BEGINNING OF THE FARMING</p>
+                <p class="turned-detail-text_item">01</p>
+              </div>
+              <p class="turned-detail-text_item">1902 - 1940</p>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "div",
+    "name": "Journey",
+    "class": "journey_section",
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "The journey of cask ownership"
+        },
+        {
+            "id": "text_filling",
+            "type": "text",
+            "label": "Filling",
+            "default": "Every cask will be filled, stored, and matured here on site in our bonded warehouse, watched over carefully as the years unfold."
+        },
+        {
+            "id": "text_storage",
+            "type": "text",
+            "label": "Storage",
+            "default": "Your cask will mature on-site in our bonded warehouse for up to 10 years, with the potential to extend maturation period, to be agreed with distillery."
+        },
+        {
+            "id": "text_sampling",
+            "type": "text",
+            "label": "Sampling",
+            "default": "Over time, the spirit will deepen in character shaped by the cask, the air, and the passage of seasons. Samples will be available upon request, and our team will guide you through key decisions from bottling timing to flavour profile development."
+        },
+        {
+            "id": "text_security",
+            "type": "text",
+            "label": "Security",
+            "default": "Each cask is insured at purchase and securely stored in our on-site bonded warehouse throughout its maturation, with the option of a cask buy-back available."
+        }
+    ],
+    "presets": [
+        {
+            "name": "Journey",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

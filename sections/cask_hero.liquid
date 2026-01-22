@@ -1,0 +1,51 @@
+<div balmaud-animation="nav-colour-swap" class="hero_wrapper">
+          <div class="hero_layout">
+            <div id="w-node-_300f8623-f835-ecd5-a192-aa7bef5769e0-777000c8" class="hero_info_layout">
+              <p balmaud-animation="fade-in" id="w-node-_323d369f-439d-de9b-6a6b-4e07644987f6-777000c8" class="hero_eyebrow">
+{{ section.settings.text_heading_eyebrow }}
+</p>
+              <h1 balmaud-animation="split-fade-in" data-stagger="0.05" id="w-node-b7a6f8e1-829d-4ae6-88d8-3d01cca2bd8b-777000c8" class="hero_heading">
+{{ section.settings.text_heading }}
+</h1>
+            </div>
+            <div id="w-node-_3a04306a-ae3b-ffbd-edf6-e7f370998e54-777000c8" class="hero_detail-text_wrapper">
+              <p class="hero_detail-text">Single estate distillery</p>
+              <p class="hero_detail-text">Single estate distillery</p>
+              <p class="hero_detail-text">Single estate distillery</p>
+            </div>
+          </div>{% if section.settings.image_image %}
+{{ section.settings.image_image | image_url: width: 2000 | image_tag: class: 'hero_background-content', balmaud-animation: 'content-fade-in', sizes: '100vw', loading: 'lazy' }}
+{% else %}
+<img class="hero_background-content" src="{{ 'image-1.webp' | asset_url }}" balmaud-animation="content-fade-in" alt="" sizes="100vw" loading="lazy" srcset="{{ 'image-1-p-500.webp' | asset_url }} 500w, {{ 'image-1-p-800.webp' | asset_url }} 800w, {{ 'image-1-p-1080.webp' | asset_url }} 1080w, {{ 'image-1-p-1600.webp' | asset_url }} 1600w, {{ 'image-1-p-2000.webp' | asset_url }} 2000w, {{ 'image-1.webp' | asset_url }} 2160w">
+{% endif %}
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Cask Hero",
+    "class": "hero_section",
+    "settings": [
+        {
+            "id": "text_heading_eyebrow",
+            "type": "text",
+            "label": "Heading Eyebrow",
+            "default": "Private Casks"
+        },
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Mark your own legacy"
+        },
+        {
+            "id": "image_image",
+            "type": "image_picker",
+            "label": "Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Cask Hero",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

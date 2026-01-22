@@ -1,0 +1,55 @@
+<div class="spacer-huge"></div>
+        <div class="legacy_wrapper">
+          <div class="padding-global">
+            <div class="legacy_layout">
+              <h2 id="w-node-_831c6caa-cc83-ccec-49bb-1e3e68c8cd94-aee46dd2" class="legacy_heading heading-style-h5">
+{{ section.settings.text_heading }}
+</h2>
+              <div id="w-node-_2ced6cf9-4e86-a443-cf4d-e7a59feec946-aee46dd2" class="no-trim w-richtext"> {{ section.settings.richtext_richtext }} </div>
+              <div id="w-node-_831c6caa-cc83-ccec-49bb-1e3e68c8cd9a-aee46dd2" class="legacy_aside">{% if section.settings.image_desktop_image %}
+{{ section.settings.image_desktop_image | image_url: width: 1000 | image_tag: class: 'contact-hero_image hide-mobile-landscape', sizes: '(max-width: 479px) 100vw, 243.28994750976562px', loading: 'lazy' }}
+{% else %}
+<img class="contact-hero_image hide-mobile-landscape" src="{{ 'BD_MAP-copy-2.webp' | asset_url }}" alt="" sizes="(max-width: 479px) 100vw, 243.28994750976562px" loading="lazy" srcset="{{ 'BD_MAP-copy-2.webp' | asset_url }} 500w, {{ 'BD_MAP-copy-2.webp' | asset_url }} 800w, {{ 'BD_MAP-copy-2.webp' | asset_url }} 1080w, {{ 'BD_MAP-copy-2.webp' | asset_url }} 1600w, {{ 'BD_MAP-copy-2.webp' | asset_url }} 1622w">
+{% endif %}{% if section.settings.image_mobile_image %}
+{{ section.settings.image_mobile_image | image_url: width: 1000 | image_tag: class: 'contact-hero_image show-mobile-landscape', sizes: '239.9913330078125px', loading: 'lazy' }}
+{% else %}
+<img class="contact-hero_image show-mobile-landscape" src="{{ 'BD_MAP_MOBILE-copy-1.webp' | asset_url }}" alt="" sizes="239.9913330078125px" loading="lazy" srcset="{{ 'BD_MAP_MOBILE-copy-1.webp' | asset_url }} 500w, {{ 'BD_MAP_MOBILE-copy-1.webp' | asset_url }} 746w">
+{% endif %}</div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "contact",
+    "class": "legacy_section",
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Located in Aberdeenshire"
+        },
+        {
+            "id": "richtext_richtext",
+            "type": "richtext",
+            "label": "Richtext",
+            "default": "<p>\n                Balmaud is a working Highland Single Estate Distillery, built with purpose and care. Visits are available by appointment only, allowing us to give each guest the time, attention, and experience the place deserves.\n                \u200d\n                If you\u2019d like to arrange a visit, discuss our spirits, or get in touch for any other enquiry, we\u2019d be pleased to hear from you.\n                \u200d\n                You can contact us by phone on <a href=\"tel:+<\/p>"
+        },
+        {
+            "id": "image_desktop_image",
+            "type": "image_picker",
+            "label": "Desktop Image"
+        },
+        {
+            "id": "image_mobile_image",
+            "type": "image_picker",
+            "label": "Mobile Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "contact",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

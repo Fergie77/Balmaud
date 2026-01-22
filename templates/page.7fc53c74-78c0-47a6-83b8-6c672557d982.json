@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "allan_findlay": {
+            "type": "allan_findlay"
+        }
+    },
+    "layout": "page.7fc53c74-78c0-47a6-83b8-6c672557d982",
+    "wrapper": "div.main-wrapper",
+    "order": [
+        "allan_findlay"
+    ]
+}

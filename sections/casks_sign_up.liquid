@@ -1,0 +1,57 @@
+<div class="casks_sign-up_wrapper">
+          <div class="casks_sign-up_component">
+            <div id="w-node-d02fbc22-1dd4-7b6b-f232-ade4eb253427-777000c8" class="casks_sign-up_layout">
+              <h2 class="casks_sign-up_heading">
+{{ section.settings.text_text }}
+</h2>
+              <p class="casks_sign-up_paragraph">
+{{ section.settings.text_paragraph }}
+</p>
+              <div class="casks_sign-up_form_wrapper w-form">
+                <form id="wf-form-Cask-Sign-Up" name="wf-form-Cask-Sign-Up" data-name="Cask Sign Up" action="https://submit-form.com/uwl9IxxcP" method="post" class="casks_sign-up_form_layout" data-wf-page-id="683059bf1c575b2f777000c8" data-wf-element-id="d02fbc22-1dd4-7b6b-f232-ade4eb25342d"><input class="casks_sign-up_input w-input" maxlength="256" name="Name" data-name="Name" placeholder="Name" type="text" id="Name-4" required=""><input class="casks_sign-up_input w-input" maxlength="256" name="Email" data-name="Email" placeholder="Email" type="email" id="Email-4" required=""><input class="casks_sign-up_input w-input" maxlength="256" name="Phone-Number" data-name="Phone Number" placeholder="Phone Number" type="tel" id="Phone-Number">
+                  <div class="margin-top margin-custom1"><input type="submit" data-wait="Please wait..." class="button w-button" value="Enquire Now"></div>
+                </form>
+                <div class="casks_sign-up_form_success w-form-done">
+                  <div>Thank you! We'll be in touch with you soon</div>
+                </div>
+                <div class="w-form-fail">
+                  <div>Oops! Something went wrong while submitting the form.</div>
+                </div>
+              </div>
+            </div>
+          </div>{% if section.settings.image_image %}
+{{ section.settings.image_image | image_url: width: 2000 | image_tag: class: 'casks_sign-up_image', sizes: '100vw', loading: 'lazy' }}
+{% else %}
+<img class="casks_sign-up_image" src="{{ 'Still-2025-03-26-140012_1.33.1-2.webp' | asset_url }}" alt="" sizes="100vw" loading="lazy" srcset="{{ 'Still-2025-03-26-140012_1.33.1-2-p-500.webp' | asset_url }} 500w, {{ 'Still-2025-03-26-140012_1.33.1-2-p-800.webp' | asset_url }} 800w, {{ 'Still-2025-03-26-140012_1.33.1-2-p-1080.webp' | asset_url }} 1080w, {{ 'Still-2025-03-26-140012_1.33.1-2-p-1600.webp' | asset_url }} 1600w, {{ 'Still-2025-03-26-140012_1.33.1-2-p-2000.webp' | asset_url }} 2000w, {{ 'Still-2025-03-26-140012_1.33.1-2.webp' | asset_url }} 2115w">
+{% endif %}
+        </div> {% schema %} {
+    "tag": "div",
+    "name": "Casks Sign Up",
+    "class": "casks_sign-up_section",
+    "settings": [
+        {
+            "id": "text_text",
+            "type": "text",
+            "label": "Text",
+            "default": "Your legacy begins now"
+        },
+        {
+            "id": "text_paragraph",
+            "type": "text",
+            "label": "Paragraph",
+            "default": "Enter your details and one of our distillery staff will be in touch shortly to talk to you in more detail"
+        },
+        {
+            "id": "image_image",
+            "type": "image_picker",
+            "label": "Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Casks Sign Up",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

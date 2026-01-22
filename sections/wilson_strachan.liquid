@@ -1,0 +1,38 @@
+<div class="w-embed w-script">
+          <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Split the path and filter out empty segments (caused by leading/trailing slashes)
+    const parts = window.location.pathname.split("/").filter(Boolean);
+    // The slug is always the last segment, regardless of "/pages/slug" structure
+    const slug = parts[parts.length - 1];
+    // Construct the API URL
+    const apiUrl = `https://x8ki-letl-twmt.n7.xano.io/api:LKU_dBdO/balmaud_qr_codes?uuid=${slug}`;
+    // Open the vCard in the same tab
+    window.location.href = apiUrl;
+    setTimeout(() => {
+      window.location.href = "https://balmauddistillery.co.uk";
+    }, 2000);
+  });
+</script>
+        </div>
+        <h1 class="hide">
+{{ section.settings.text_heading }}
+</h1> {% schema %} {
+    "tag": "div",
+    "name": "Wilson Strachan",
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Heading"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Wilson Strachan",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

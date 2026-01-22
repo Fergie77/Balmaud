@@ -1,0 +1,87 @@
+<div class="manifesto_wrapper">
+          <div class="manifesto_layout">
+            <div id="w-node-_9546b04b-4705-d4d1-ddd9-1b6c150eb853-b972f49a" class="manifesto_image_wrapper">
+              <div class="manifesto_image is-absolute">{% if section.settings.image_image %}
+{{ section.settings.image_image | image_url: width: 1000 | image_tag: class: 'manifesto_image', sizes: '100vw', loading: 'lazy' }}
+{% else %}
+<img class="manifesto_image" src="{{ 'image-31.webp' | asset_url }}" alt="" sizes="100vw" loading="lazy" srcset="{{ 'image-31-p-500.webp' | asset_url }} 500w, {{ 'image-31-p-800.webp' | asset_url }} 800w, {{ 'image-31.webp' | asset_url }} 1038w">
+{% endif %}
+                <div class="manifesto_image_mask is-right"></div>
+              </div>
+            </div>
+            <p balmaud-animation="fade-in" id="w-node-_9546b04b-4705-d4d1-ddd9-1b6c150eb857-b972f49a" class="manifesto_paragraph shift-left">
+{{ section.settings.text_paragraph }}
+</p>
+            <h2 data-stagger="0.05" balmaud-animation="split-fade-in" id="w-node-_9546b04b-4705-d4d1-ddd9-1b6c150eb859-b972f49a" class="manifesto_heading heading-style-h4">
+{{ section.settings.text_heading }}
+</h2>
+            <div balmaud-animation="fade-in" id="w-node-_8f4e6501-85b1-45e7-a50d-e5cf10f2a6ad-b972f49a">
+              <div data-wf--button-2--variant="dark" class="button w-variant-80eba121-a0c2-7ee1-0a00-beff34119e31">
+                <p>
+{{ section.settings.text_button_text }}
+</p>
+                <a href="{{ section.settings.url_link }}" class="button_link w-inline-block"> </a>
+                {% if article.url %}    <div li-if="article.url" class="absolute-wrapper">
+    
+                  <a li-object:href="article.url" href="{{ article.url }}" class="button_link w-inline-block"></a>
+                    </div>
+{% endif %}
+              </div>
+            </div>
+            <div id="w-node-_9546b04b-4705-d4d1-ddd9-1b6c150eb85b-b972f49a" class="manifesto_image_wrapper">
+              <div class="manifesto_image">{% if section.settings.image_image %}
+{{ section.settings.image_image | image_url: width: 1000 | image_tag: class: 'manifesto_image', sizes: '100vw', loading: 'lazy' }}
+{% else %}
+<img class="manifesto_image" src="{{ 'image-31.webp' | asset_url }}" alt="" sizes="100vw" loading="lazy" srcset="{{ 'image-31-p-500.webp' | asset_url }} 500w, {{ 'image-31-p-800.webp' | asset_url }} 800w, {{ 'image-31.webp' | asset_url }} 1038w">
+{% endif %}
+                <div class="manifesto_image_mask is-right"></div>
+              </div>
+              <div class="manifesto_vertical-text_wrapper text-color-secondary">
+                <p class="manifesto_vertical-text_item">FAMILY GROWN FOR THREE<br> GENERATIONS, THIS IS OUR SPIRIT.</p>
+                <p class="manifesto_vertical-text_item">NEW TO DISTILLING<br>NOT TO BARLEY</p>
+                <p class="manifesto_vertical-text_item">BALMAUD DISTILLERY<br>BANFF, ABERDEEN</p>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Manifesto 2",
+    "class": "manifesto_section",
+    "settings": [
+        {
+            "id": "image_image",
+            "type": "image_picker",
+            "label": "Image"
+        },
+        {
+            "id": "text_paragraph",
+            "type": "text",
+            "label": "Paragraph",
+            "default": "Great whisky should be as good for our planet as it is for our customers. A new gold standard for sustainable luxury whisky making, Perfecting our product by controlling all facets of the production process, from growth to grain to glass."
+        },
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Find your Unordinary way to drink"
+        },
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button Text",
+            "default": "Shop Now"
+        },
+        {
+            "id": "url_link",
+            "type": "url",
+            "label": "Link"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Manifesto 2",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

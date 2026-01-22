@@ -1,0 +1,68 @@
+<div balmaud-animation="nav-colour-swap" class="hero_wrapper">
+          
+          <div data-poster-url="videos/BD_WEBSITE_HEADER_1-poster-00001.jpg" data-video-urls="videos/BD_WEBSITE_HEADER_1-transcode.mp4,videos/BD_WEBSITE_HEADER_1-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" balmaud-animation="content-fade-in" li-object="section.settings.video | video_tag: image_size: '2000x', autoplay: 'true', muted: 'true', loop: 'true'" class="hero_background-content w-background-video w-background-video-atom">{{ section.settings.video | video_tag: image_size: '2000x', autoplay: 'true', muted: 'true', loop: 'true' }}</div><video src="https://dl.dropboxusercontent.com/scl/fi/4y4qrsyry0kjb0no5xz7a/BD_WEBSITE_HEADER_1.webm?rlkey=1r85c8ywrqkz9xioiw5mlngqw&dl=0" autoplay="true" loop="" muted="" playsinline="" balmaud-animation="content-fade-in" class="hero_background-content hide">
+            <div class="hero_background_poster"></div>
+          </video>
+          <div class="hero_layout">
+            <div id="w-node-_300f8623-f835-ecd5-a192-aa7bef5769e0-293f54b6" class="hero_info_layout is-flex">
+              <div id="w-node-_7dc37e0c-f084-6775-f39a-70409381b8e3-293f54b6">
+                <p balmaud-animation="fade-in" class="hero_eyebrow">
+{{ section.settings.text_heading_eyebrow }}
+</p>
+              </div>
+              <div id="w-node-_055eaa0d-63de-c5d8-8348-8ce5edce39e8-293f54b6" class="hero_info_flex">
+                <h1 balmaud-animation="split-fade-in" class="hero_heading">
+{{ section.settings.text_heading }}
+</h1>
+                <p balmaud-animation="fade-in" data-delay="0.5" id="w-node-c070e4b4-b9bc-6792-0c28-7e189c53654b-293f54b6" class="hero_paragraph">
+{{ section.settings.text_paragraph }}
+</p>
+              </div>
+            </div>
+            <div id="w-node-_3a04306a-ae3b-ffbd-edf6-e7f370998e54-293f54b6" class="hero_detail-text_wrapper">
+              <p class="hero_detail-text">SCOTLANDS FIRST HIGHLAND</p>
+              <p class="hero_detail-text">SCOTLANDS FIRST HIGHLAND</p>
+              <p class="hero_detail-text">SCOTLANDS FIRST HIGHLAND</p>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Video Hero",
+    "class": "hero_section",
+    "settings": [
+        {
+            "type": "header",
+            "content": "video"
+        },
+        {
+            "type": "video",
+            "id": "video",
+            "label": "Background Video"
+        },
+        {
+            "id": "text_heading_eyebrow",
+            "type": "text",
+            "label": "Heading Eyebrow",
+            "default": "Our Farms"
+        },
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "A story written in the land"
+        },
+        {
+            "id": "text_paragraph",
+            "type": "text",
+            "label": "Paragraph",
+            "default": "Balmaud is where that legacy evolves. A Highland Single Estate Distillery, purpose-built to bring together tradition and innovation on one site \u2013 with modern distilling technology, sustainable infrastructure, and complete control from grain to glass."
+        }
+    ],
+    "presets": [
+        {
+            "name": "Video Hero",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}
