@@ -8,17 +8,34 @@ export const contentFadeIn = () => {
     '[balmaud-animation="content-fade-in"]'
   )
   content.forEach((element) => {
-    ScrollTrigger.create({
-      trigger: element,
-      start: 'top 100%',
-      end: 'bottom top',
-      onEnter: () =>
-        gsap.to(element, {
-          filter: 'brightness(1)',
-          duration: 1,
-          ease: 'none',
-        }),
-    })
+    // Hero images should be visible immediately for LCP
+    // Check if this is a hero background wrapper (always at top of page)
+    const isHeroWrapper = element.classList.contains('hero_background_wrapper')
+    
+    if (isHeroWrapper) {
+      // Hero images must be visible immediately for LCP
+      gsap.set(element, { filter: 'brightness(1)' })
+    } else {
+      // Other content can animate on scroll
+      const rect = element.getBoundingClientRect()
+      const isInViewport = rect.top < window.innerHeight && rect.bottom > 0
+      
+      if (!isInViewport) {
+        ScrollTrigger.create({
+          trigger: element,
+          start: 'top 100%',
+          end: 'bottom top',
+          onEnter: () =>
+            gsap.to(element, {
+              filter: 'brightness(1)',
+              duration: 1,
+              ease: 'none',
+            }),
+        })
+      } else {
+        gsap.set(element, { filter: 'brightness(1)' })
+      }
+    }
   })
 }
 

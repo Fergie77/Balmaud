@@ -14,9 +14,9 @@
               <p class="hero_detail-text">Single estate distillery</p>
             </div>
           </div>{% if section.settings.image_image %}
-{{ section.settings.image_image | image_url: width: 2000 | image_tag: class: 'hero_background-content', balmaud-animation: 'content-fade-in', sizes: '100vw', loading: 'lazy' }}
+{{ section.settings.image_image | image_url: width: 2000 | image_tag: class: 'hero_background-content', balmaud-animation: 'content-fade-in', sizes: '100vw', loading: 'eager', fetchpriority: 'high' }}
 {% else %}
-<img class="hero_background-content" src="{{ 'image-1.webp' | asset_url }}" balmaud-animation="content-fade-in" alt="" sizes="100vw" loading="lazy" srcset="{{ 'image-1-p-500.webp' | asset_url }} 500w, {{ 'image-1-p-800.webp' | asset_url }} 800w, {{ 'image-1-p-1080.webp' | asset_url }} 1080w, {{ 'image-1-p-1600.webp' | asset_url }} 1600w, {{ 'image-1-p-2000.webp' | asset_url }} 2000w, {{ 'image-1.webp' | asset_url }} 2160w">
+<img class="hero_background-content" src="{{ 'image-1.webp' | asset_url }}" balmaud-animation="content-fade-in" alt="" sizes="100vw" loading="eager" fetchpriority="high" srcset="{{ 'image-1-p-500.webp' | asset_url }} 500w, {{ 'image-1-p-800.webp' | asset_url }} 800w, {{ 'image-1-p-1080.webp' | asset_url }} 1080w, {{ 'image-1-p-1600.webp' | asset_url }} 1600w, {{ 'image-1-p-2000.webp' | asset_url }} 2000w, {{ 'image-1.webp' | asset_url }} 2160w">
 {% endif %}
         </div> {% schema %} {
     "tag": "section",
